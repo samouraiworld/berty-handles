@@ -5,6 +5,7 @@ const nav = document.getElementById("navbar");
 
 if (bar) {
     bar.addEventListener("click", () => {
+        console.log("yoyoyo")
         nav.classList.add("active");
     })
 }
@@ -60,9 +61,3 @@ if (revbtn) {
         li2.classList.remove("current");
     })
 }
-
-// if (close) {
-//     close.addEventListener("click", () => {
-//         nav.classList.remove("active");
-//     })
-// }
