@@ -250,6 +250,21 @@ body {
     padding-left: 16px;
 }
 
+#ret-li {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 48px;
+    align-items: center;
+    width: 100%;
+}
+
+
+#ret-li h2 {
+    padding-left: 16px !important;
+}
+
 .steps-array .array li:nth-child(1) {
     border-radius: 8px 8px 0px 0px;
 }

@@ -17,6 +17,7 @@ if (close) {
 
 // trigger
 const btn = document.getElementById("continue-btn");
+const revbtn = document.getElementById("li1");
 
 //  Register 1.1
 const reg1a = document.getElementById("reg1a");
@@ -43,6 +44,20 @@ if (btn) {
         li1.classList.remove("current");
         li1.classList.add("valid");
         li2.classList.add("current");
+    })
+}
+
+if (revbtn) {
+    revbtn.addEventListener("click", () => {
+        reg2a.classList.add("disabled");
+        reg2b.classList.add("disabled");
+        reg2c.classList.add("disabled");
+        reg1a.classList.remove("disabled");
+        reg1b.classList.remove("disabled");
+        reg1c.classList.remove("disabled");
+        li1.classList.add("current");
+        li1.classList.remove("valid");
+        li2.classList.remove("current");
     })
 }
 
