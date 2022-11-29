@@ -93,12 +93,13 @@ body {
     width: 100%;
     height: 250px;
     background: rgba(82, 91, 236, 1);
+    border-radius: 10px;
 }
 
 #footer .col-container {
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 160px;
 }
 
 .col-container .col1 {
@@ -316,12 +317,10 @@ body {
     align-items: center;
 }
 
-/* .connect2 .line-container button {
-    position: relative;
-    left: 100%;
-} */
-
-#available-btn {
+.available-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 118px;
     height: 46px;
     background: rgba(106, 171, 100, 1);
@@ -330,7 +329,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
-
 }
 
 .connect-array .connect-btn {
@@ -598,6 +596,14 @@ body {
     cursor: pointer;
 }
 
+/* Media Queries */
+
+@media (max-width:1600px) {
+
+    #footer .col-container {
+        gap: 50px;
+    }
+}
 
 @media (max-width:1025px) {
 
