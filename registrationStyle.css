@@ -16,7 +16,7 @@ button {
 }
 
 .hov:hover {
-    background: rgba(82, 91, 236, 1);
+    background: rgba(82, 91, 236, 1) !important;
 }
 
 body {
@@ -87,93 +87,6 @@ body {
     display: none;
 }
 
-
-/* content */
-
-#content {
-    width: 100%;
-    height: 600px;
-    display: flex;
-    align-items: flex-start;
-    margin-top: 86px;
-    justify-content: center;
-    gap: 100px;
-}
-
-#content img {
-    width: 360px;
-    height: 357px;
-}
-
-#content div {
-    width: 460px;
-    height: 330px;
-}
-
-#content h1 {
-    width: 430px;
-    height: 208px;
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 52px;
-}
-
-#content h2 {
-    font-weight: 700;
-    font-size: 20px;
-}
-
-#content p {
-    font-weight: 700;
-    font-size: 13px;
-    color: #8589A6;
-}
-
-#content .p12 {
-    font-size: 12px;
-    color: #8589A6;
-}
-
-#content .txt-orange {
-    color: rgba(243, 161, 94, 1);
-}
-
-#content form {
-    margin-top: 20px;
-    display: flex;
-    width: 458px;
-    height: 48px;
-    background: #131A51;
-    border: 1px solid #525BEC;
-    border-radius: 8px;
-}
-
-#content input {
-    width: 345px;
-    height: 48px;
-    background: #131A51;
-    font-weight: 700;
-    font-size: 13px;
-    border-radius: 8px;
-    border: 0;
-    padding-left: 5px;
-}
-
-#content button {
-    background-color: rgba(82, 91, 236, 1);
-    color: #fff;
-    white-space: nowrap;
-    border-radius: 8px;
-    width: 110px;
-    height: 46px;
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 17px;
-    margin-top: 2px;
-}
-
 /* footer */
 
 #footer {
@@ -242,9 +155,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* justify-content: flex-start; */
     gap: 6px;
-    /* margin-bottom: 20px; */
 }
 
 #footer .col-container .strong a {
@@ -298,6 +209,7 @@ body {
     height: 600px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 80px;
 }
 
@@ -316,7 +228,7 @@ body {
     flex-direction: column;
     width: 225px;
     height: 220px;
-    padding: 75px 0px 0px 236px;
+    padding: 75px 0px 0px 0px;
 }
 
 .steps-array .array {
@@ -395,10 +307,19 @@ body {
     gap: 15px;
 }
 
-.connect-array .connect2 button {
-    position: absolute;
-    left: 82%
+.connect2 .line-container {
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
+/* .connect2 .line-container button {
+    position: relative;
+    left: 100%;
+} */
 
 #available-btn {
     width: 118px;
@@ -470,6 +391,7 @@ body {
 .connect-array .continue {
     display: flex;
     justify-content: center;
+    gap: 24px;
 }
 
 .connect-array .continue-btn {
@@ -676,131 +598,6 @@ body {
     cursor: pointer;
 }
 
-#popup {
-    display: none;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    height: 200vh;
-    width: 100vw;
-    /* z-index: 90; */
-    background: rgba(44, 44, 44, 0.498);
-
-}
-
-#popup .box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 404px;
-    height: 605px;
-    background: #020940;
-    border: 1px solid #20275E;
-    border-radius: 8px;
-    z-index: 91;
-
-}
-
-#popup p {
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 17px;
-}
-
-#popup.active {
-    display: block;
-}
-
-#popup .head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 20px;
-}
-
-#popup .body {
-    width: 356px;
-    height: 400px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background: #131A51;
-    border-radius: 8px;
-    margin: 25px;
-}
-
-#popup .body img {
-    margin: 90px;
-    width: 160px;
-    height: 160px;
-}
-
-#popup .body .bot {
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 25px;
-    width: 100%;
-    background: #6AAB64;
-    border-radius: 0px 0px 8px 8px;
-
-}
-
-#popup .body .bot p:nth-child(2) {
-    background: rgba(70, 135, 64, 1);
-    border-radius: 5px;
-    padding: 5px;
-}
-
-#popup .foot {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 30px;
-}
-
-#popup .foot .right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-}
-
-#popup .foot .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-}
-
-#popup .foot .left .logo-cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-#popup .foot img {
-    width: 40px;
-    height: 40px;
-}
-
-
-
-
-
-
-
-
-
 
 @media (max-width:1025px) {
 
@@ -882,23 +679,63 @@ body {
         font-size: 24px;
     }
 
-    #content {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-    }
-
     #footer {
         display: none;
     }
 
+    .steps-array {
+        padding: 0;
+        width: 705px;
+        height: 32px;
+    }
+
+    .steps-array .title {
+        display: none;
+    }
+
+    .steps-array .array {
+        height: 32px;
+        width: 705px;
+    }
+
+    #steps {
+        display: flex;
+        flex-direction: row;
+        width: 705px;
+        height: 32px;
+    }
+
+    #steps li {
+        display: flex;
+        flex-direction: row;
+        width: 177px;
+        height: 32px;
+        border-radius: 0 !important;
+    }
+
+    #steps h2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 12px;
+        line-height: 16px;
+        align-items: center;
+    }
+
     #registration {
         flex-direction: column;
+        justify-content: flex-start;
+        gap: 12px;
+        height: 640px;
+        /* overflow-y: hidden; */
     }
 
     #registration .connect-array {
+        display: flex;
         justify-content: space-around;
-        padding: 0 5%;
+        padding: 0 3%;
+        width: 320px;
+        height: 480px;
     }
 
     #registration2 {

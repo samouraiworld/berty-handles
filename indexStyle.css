@@ -16,7 +16,7 @@ button {
 }
 
 .hov:hover {
-    background: rgba(82, 91, 236, 1);
+    background: rgba(82, 91, 236, 1) !important;
 }
 
 body {
@@ -171,9 +171,9 @@ body {
     background-color: rgba(82, 91, 236, 1);
     color: #fff;
     white-space: nowrap;
-    border-radius: 8px;
+    border-radius: 6px;
     width: 110px;
-    height: 46px;
+    height: 45px;
     font-family: 'IBM Plex Mono';
     font-style: normal;
     font-weight: 700;
