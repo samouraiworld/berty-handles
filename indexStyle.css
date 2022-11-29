@@ -15,6 +15,10 @@ button {
     cursor: pointer;
 }
 
+.hov:hover {
+    background: rgba(82, 91, 236, 1);
+}
+
 body {
     width: 100%;
     background: rgba(2, 9, 64, 1);
@@ -49,18 +53,14 @@ body {
 
 #navbar li {
     list-style: none;
-    padding: 0 20px;
-    position: relative;
-    gap: 10px;
-    background: #020940;
-    border: 1px solid #15217B;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
-    border-radius: 8px;
-    height: 25px;
-    padding: 10px 16px;
 }
 
 #navbar li a {
+    border: 1px solid #15217B;
+    background: #020940;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    padding: 10px 16px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
