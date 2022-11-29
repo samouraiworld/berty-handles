@@ -29,7 +29,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: sticky;
+    /* position: sticky; */
     background: rgba(2, 9, 64, 1);
     height: 90px;
     gap: 40%;
@@ -49,6 +49,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* z-index: 999; */
 }
 
 #navbar li {
@@ -201,33 +202,28 @@ body {
     height: 20px;
 }
 
-/* Registration 1 */
-
-#registration {
-    width: 100%;
-    height: 600px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 80px;
-}
-
-#registration h2 {
-    font-size: 13px;
-}
-
 .title h2 {
     font-size: 13px;
     color: #8589A6;
     padding-bottom: 11px;
 }
 
+.left-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 480px;
+    /* padding: 75px 0px 0px 0px; */
+}
+
 .steps-array {
     display: flex;
     flex-direction: column;
-    width: 225px;
-    height: 220px;
-    padding: 75px 0px 0px 0px;
+    /* width: 225px; */
+    height: 220px !important;
+    margin-bottom: 120px;
+    /* padding: 75px 0px 0px 0px; */
 }
 
 .steps-array .array {
@@ -286,167 +282,7 @@ body {
     display: none;
 }
 
-.connect-array {
-    width: 664px;
-    height: 410px;
-    padding-top: 75px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.connect-array .connect {
-    height: 48px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #525BEC;
-    border-radius: 8px;
-    background: #131A51;
-    padding-left: 12px;
-}
-
-.connect-array .connect2 {
-    position: relative;
-    height: 48px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    border: 1px solid #525BEC;
-    border-radius: 8px;
-    background: #131A51;
-    padding-left: 12px;
-    gap: 15px;
-}
-
-.connect2 .line-container {
-
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.available-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 118px;
-    height: 46px;
-    background: rgba(106, 171, 100, 1);
-    border-radius: 8px;
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.connect-array .connect-btn {
-    width: 108px;
-    height: 32px;
-    background: #020940;
-    border: 1px solid #525BEC;
-    margin-right: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
-    border-radius: 5px;
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.connect-array .info {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid #20275E;
-    border-radius: 8px;
-    gap: 16px;
-    padding: 20px 0 20px 20px;
-}
-
-.connect-array .info img {
-    height: 24px;
-    width: 24px;
-}
-
-.connect-array .text-container {
-    width: 488px;
-}
-
-.connect-array .info h2 {
-    font-size: 20px !important;
-}
-
-
-.connect-array .info p {
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    color: rgba(133, 137, 166, 1);
-}
-
-.connect-array .info p:nth-child(3) {
-    font-size: 12px !important;
-}
-
-.connect-array .info .txt-orange {
-    color: #F3A15E;
-}
-
-.connect-array .connect.icons {
-    justify-content: flex-start !important;
-}
-
-.connect-array .continue {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-}
-
-.connect-array .continue-btn {
-    width: 118px;
-    height: 42px;
-    background: #ffffff00;
-    border: 1px solid rgba(82, 91, 236, 1);
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.connect-array .btn-link .continue-btn {
-    background: #525BEC !important;
-}
-
-#registration2 {
-    width: 100%;
-    height: 600px;
-    display: flex;
-    flex-direction: row;
-    gap: 80px;
-}
-
-#registration2 h2 {
-    font-size: 13px;
-}
-
-#registration2 .steps-array .array li:nth-child(2) {
-    justify-content: space-between;
-    padding-right: 17px;
-    border-radius: 8px 8px 0px 0px;
-    background: #131A51;
-}
-
-#registration2 .steps-array .array li:nth-child(3) {
-    background: rgba(82, 91, 236, 1);
-}
-
-#registration2 .continue {
-    gap: 24px;
-}
-
-/* Registration 3
+/* Registration 3 */
 
 #registration3 {
     width: 100%;
@@ -490,6 +326,7 @@ body {
     background: #525BEC;
     border-radius: 8px;
     gap: 35px;
+    margin-bottom: 16px;
 }
 
 .profile img {
@@ -520,18 +357,20 @@ body {
     width: 224px;
     height: 42px;
     background: #020940;
-    border: 1px solid #525BEC;
+
     border-radius: 8px;
 }
 
 .learn button {
     background: #020940;
-    border: none;
+    border: 1px solid #525BEC;
     font-family: 'IBM Plex Mono';
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
     line-height: 17px;
+    width: 100%;
+    border-radius: 8px;
 }
 
 .registration-form {
@@ -546,7 +385,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 74px;
+    /* margin-top: 74px; */
     padding: 20px 0;
     height: 60px;
     border: 1px solid #20275E;
@@ -606,7 +445,7 @@ body {
     margin-top: 2px;
     border: none;
     cursor: pointer;
-} */
+}
 
 /* Media Queries */
 
@@ -707,7 +546,8 @@ body {
     }
 
     .steps-array {
-        padding: 0;
+        /* display: none !important; */
+        padding: 0 !important;
         width: 705px;
         height: 32px;
     }
@@ -717,6 +557,8 @@ body {
     }
 
     .steps-array .array {
+        /* display: none !important; */
+        /* a gerer */
         height: 32px;
         width: 705px;
     }
@@ -745,45 +587,67 @@ body {
         align-items: center;
     }
 
-    #registration {
+
+
+    #registration3 {
+        width: 100%;
+        height: auto;
         flex-direction: column;
-        justify-content: flex-start;
-        gap: 12px;
-        height: 640px;
-        /* overflow-y: hidden; */
+        align-items: center;
+
     }
 
-    #registration .connect-array {
-        display: flex;
-        justify-content: space-around;
-        padding: 0 3%;
-        width: 320px;
-        height: 480px;
-    }
-
-    #registration2 {
-        flex-direction: column;
-    }
-
-    #registration2 .connect-array {
-        justify-content: space-around;
-        padding: 0 5%;
-    }
-
-
-
-    /* #registration3 {
-        flex-direction: column;
-        height: 1800px;
-    }
-
-    #registration3 .connect-array {
-        justify-content: space-around;
-        padding: 0 5%;
-    }
-
-    #registration3 .registration-form {
-        padding-left: 50px;
+    /* .back {
+        display: none !important;
     } */
+
+    /* .profile {
+        width: 100%;
+        position: sticky;
+
+    } */
+
+    .left-wrapper {
+        height: 80px;
+        width: 100%;
+        /* position: sticky !important; */
+        /* bottom: 20%; */
+    }
+
+    .profile {
+        display: none;
+        /* width: 100%;
+        z-index: 99;
+        position: sticky !important; */
+    }
+
+    .steps-array {
+        display: none;
+        flex-direction: column-reverse;
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .back {
+        margin: 0px 0px 0px 80px;
+    }
+
+    .learn {
+        display: none;
+    }
+
+    .registration-form {
+        width: 90% !important;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-around;
+        align-items: space-around; */
+    }
+
+    .registration-form input {
+        width: 100% !important;
+    }
 
 }

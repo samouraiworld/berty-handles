@@ -5,7 +5,6 @@ const nav = document.getElementById("navbar");
 
 if (bar) {
     bar.addEventListener("click", () => {
-        console.log("yoyoyo")
         nav.classList.add("active");
     })
 }
