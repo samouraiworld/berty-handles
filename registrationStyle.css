@@ -19,6 +19,10 @@ button {
     background: rgba(82, 91, 236, 1) !important;
 }
 
+.revhov:hover {
+    background: rgba(2, 9, 64, 1) !important;
+}
+
 body {
     width: 100%;
     background: rgba(2, 9, 64, 1);
@@ -748,6 +752,7 @@ body {
     #registration {
         flex-direction: column;
         justify-content: flex-start;
+        align-items: center;
         gap: 12px;
         height: 640px;
         /* overflow-y: hidden; */
@@ -756,19 +761,19 @@ body {
     #registration .connect-array {
         display: flex;
         justify-content: space-around;
-        padding: 0 3%;
+        padding: 0px;
         width: 320px;
         height: 480px;
     }
 
-    #registration2 {
+    /* #registration2 {
         flex-direction: column;
     }
 
     #registration2 .connect-array {
         justify-content: space-around;
         padding: 0 5%;
-    }
+    } */
 
 
 
