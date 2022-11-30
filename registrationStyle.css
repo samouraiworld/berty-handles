@@ -774,29 +774,4 @@ body {
         width: 90%;
     }
 
-    /* #registration2 {
-        flex-direction: column;
-    }
-
-    #registration2 .connect-array {
-        justify-content: space-around;
-        padding: 0 5%;
-    } */
-
-
-
-    /* #registration3 {
-        flex-direction: column;
-        height: 1800px;
-    }
-
-    #registration3 .connect-array {
-        justify-content: space-around;
-        padding: 0 5%;
-    }
-
-    #registration3 .registration-form {
-        padding-left: 50px;
-    } */
-
 }
