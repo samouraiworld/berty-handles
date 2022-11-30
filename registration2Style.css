@@ -41,6 +41,16 @@ body {
     display: none !important;
 }
 
+
+.enabled {
+    display: block !important;
+}
+
+.fullscreen {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 /* Navbar */
 
 #navbar {
@@ -447,6 +457,10 @@ body {
     cursor: pointer;
 }
 
+.mobile-popup {
+    display: none;
+}
+
 /* Media Queries */
 
 @media (max-width:1600px) {
@@ -614,7 +628,7 @@ body {
         /* bottom: 20%; */
     }
 
-    .profile {
+    #registration3 .profile {
         display: none;
         /* width: 100%;
         z-index: 99;
@@ -648,6 +662,45 @@ body {
 
     .registration-form input {
         width: 100% !important;
+    }
+
+    .mobile-popup {
+        position: fixed;
+        height: 60px;
+        /* height: 186px; */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: end;
+        /* height: 100%; */
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: 995;
+    }
+
+    .mobile-popup #clickable {
+
+        display: block;
+        width: 100%;
+        height: 90%;
+        background: rgba(46, 46, 46, 0.501);
+    }
+
+    .mobile-popup .profile {
+        margin-bottom: 0;
+        width: 100%;
+        height: 186px;
+        gap: 8px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .mobile-popup .profile img {
+        display: none;
+    }
+
+    .mobile-popup .profile .name p {
+        margin-bottom: 15px
     }
 
 }

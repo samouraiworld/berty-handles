@@ -753,7 +753,7 @@ body {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 12px;
+        gap: 25px;
         height: 640px;
         /* overflow-y: hidden; */
     }
@@ -764,6 +764,14 @@ body {
         padding: 0px;
         width: 320px;
         height: 480px;
+    }
+
+    .connect-array .info {
+        flex-direction: column;
+    }
+
+    .connect-array .text-container {
+        width: 90%;
     }
 
     /* #registration2 {
