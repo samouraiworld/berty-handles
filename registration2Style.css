@@ -734,7 +734,7 @@ body {
 
     .steps-array {
         padding: 0 !important;
-        width: 705px;
+        width: 100%;
         height: 32px;
     }
 

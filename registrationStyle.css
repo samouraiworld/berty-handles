@@ -710,9 +710,13 @@ body {
         display: none;
     }
 
+    .wrap {
+        width: 100%;
+    }
+
     .steps-array {
         padding: 0;
-        width: 705px;
+        width: 100% !important;
         height: 32px;
     }
 
@@ -722,13 +726,15 @@ body {
 
     .steps-array .array {
         height: 32px;
-        width: 705px;
+        width: 100% !important;
     }
 
     #steps {
+        max-width: 100% !important;
+        overflow-x: auto !important;
         display: flex;
         flex-direction: row;
-        width: 705px;
+        /* width: 705px; */
         height: 32px;
     }
 
@@ -736,6 +742,7 @@ body {
         display: flex;
         flex-direction: row;
         width: 177px;
+        min-width: 177px;
         height: 32px;
         border-radius: 0 !important;
     }
