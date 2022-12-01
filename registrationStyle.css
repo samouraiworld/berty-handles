@@ -325,6 +325,11 @@ body {
     gap: 15px;
 }
 
+.connect-array .connect2 img {
+    width: 24px;
+    height: 24px;
+}
+
 .connect2 .line-container {
 
     width: 100%;
