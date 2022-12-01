@@ -114,6 +114,7 @@ body {
 #footer .col-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
     gap: 160px;
 }
 
@@ -303,7 +304,9 @@ body {
     height: 1140px;
     display: flex;
     flex-direction: row;
-    gap: 80px;
+
+    justify-content: flex-start;
+    gap: 10%;
 }
 
 #registration3 .steps-array {
@@ -639,6 +642,17 @@ body {
 
     #footer .col-container {
         gap: 50px;
+    }
+
+    #registration3 {
+        gap: 50px;
+    }
+}
+
+@media (max-width:1350px) {
+
+    .left-wrapper {
+        width: 300px !important;
     }
 }
 
