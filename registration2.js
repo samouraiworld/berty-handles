@@ -19,20 +19,21 @@ if (close) {
 const trig = document.getElementById("profile-popup");
 const closetrig = document.getElementById("clickable");
 const mobilepopup = document.getElementById("mobile-popup");
-const img = document.getElementById("popup-img");
+const popimg = document.getElementById("popupimg");
 
 if (trig) {
     trig.addEventListener("click", () => {
+        popimg.classList.add("enabled");
         mobilepopup.classList.add("fullscreen");
         closetrig.classList.add("enabled");
-        img.classList.add("enabled");
-        console.log(img.classList);
+
+        console.log(popimg.classList);
     })
 }
 
 if (closetrig) {
     closetrig.addEventListener("click", () => {
-        img.classList.remove("enabled");
+        popimg.classList.remove("enabled");
         closetrig.classList.remove("enabled");
         mobilepopup.classList.remove("fullscreen");
     })
