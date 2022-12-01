@@ -97,13 +97,13 @@ body {
     width: 100%;
     height: 250px;
     background: rgba(82, 91, 236, 1);
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 #footer .col-container {
     display: flex;
     flex-direction: row;
-    gap: 160px;
+    gap: 200px;
 }
 
 .col-container .col1 {
@@ -209,7 +209,7 @@ body {
 
 #registration {
     width: 100%;
-    height: 600px;
+    height: 670px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -450,168 +450,6 @@ body {
     gap: 24px;
 }
 
-/* Registration 3
-
-#registration3 {
-    width: 100%;
-    height: 1140px;
-    display: flex;
-    flex-direction: row;
-    gap: 80px;
-}
-
-#registration3 .steps-array {
-    height: 600px;
-    gap: 20px;
-    padding: 24px 0px 0px 236px;
-}
-
-#registration3 h2 {
-    font-size: 13px;
-}
-
-.back {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    margin-bottom: 22px;
-}
-
-.back p {
-    padding: 6px;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 17px;
-    color: #8589A6;
-}
-
-.profile {
-    width: 224px;
-    height: 224px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #525BEC;
-    border-radius: 8px;
-    gap: 35px;
-}
-
-.profile img {
-    width: 72px;
-    height: 72px;
-}
-
-.profile p {
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.profile .status {
-    display: flex;
-    width: 118px;
-    height: 26px;
-    background: #6AAB64;
-    border-radius: 0px 0px 5px 5px;
-    justify-content: center;
-    align-items: center;
-}
-
-.learn {
-    display: flex;
-    justify-content: center;
-    width: 224px;
-    height: 42px;
-    background: #020940;
-    border: 1px solid #525BEC;
-    border-radius: 8px;
-}
-
-.learn button {
-    background: #020940;
-    border: none;
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 17px;
-}
-
-.registration-form {
-    display: flex;
-    flex-direction: column;
-    padding: 24px 0 0 0;
-    width: 664px;
-    gap: 16px;
-}
-
-.registration-form .mint {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 74px;
-    padding: 20px 0;
-    height: 60px;
-    border: 1px solid #20275E;
-    border-radius: 8px;
-    gap: 16px;
-    padding-left: 20px;
-}
-
-.mint p {
-    font-weight: 700;
-    font-size: 13px;
-    color: #8589A6;
-}
-
-.registration-form li {
-    list-style: none;
-    height: 71px;
-    margin-bottom: 16px;
-
-}
-
-.registration-form p {
-    font-weight: 700;
-    font-size: 13px;
-    color: #8589A6;
-    margin-bottom: 6px;
-}
-
-.registration-form input {
-    text-decoration: none;
-    width: 664px;
-    height: 48px;
-    background: #131A51;
-    font-weight: 700;
-    font-size: 13px;
-    border-radius: 8px;
-    border: 0;
-    padding-left: 5px;
-}
-
-.registration-form .continue {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 120px;
-}
-
-.registration-form button {
-    background-color: rgba(82, 91, 236, 1);
-    color: #fff;
-    white-space: nowrap;
-    border-radius: 8px;
-    width: 217px;
-    height: 42px;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 17px;
-    margin-top: 2px;
-    border: none;
-    cursor: pointer;
-} */
-
 /* Media Queries */
 
 @media (max-width:1600px) {
@@ -702,10 +540,6 @@ body {
         font-size: 24px;
     }
 
-    /* .wrap {
-        overflow-x: auto !important;
-    } */
-
     #footer {
         display: none;
     }
@@ -734,7 +568,6 @@ body {
         overflow-x: auto !important;
         display: flex;
         flex-direction: row;
-        /* width: 705px; */
         height: 32px;
     }
 
@@ -769,7 +602,8 @@ body {
         display: flex;
         justify-content: space-around;
         padding: 0px;
-        width: 320px;
+        /* width: 320px; */
+        width: 90%;
         height: 480px;
     }
 
@@ -781,4 +615,10 @@ body {
         width: 90%;
     }
 
+}
+
+@media screen and (max-width:350px) {
+    #registration {
+        gap: 80px
+    }
 }

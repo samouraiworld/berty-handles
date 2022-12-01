@@ -724,18 +724,26 @@ body {
         font-size: 24px;
     }
 
-    /* .wrap {
-        overflow-x: auto !important;
-    } */
-
     #footer {
+        display: none;
+    }
+
+    .left-wrapper {
+        margin-top: 280px;
+        height: 80px;
+        width: 100%;
+    }
+
+    .left-wrapper .profile {
         display: none;
     }
 
     .steps-array {
         padding: 0 !important;
-        width: 100%;
+        width: 100% !important;
         height: 32px;
+        flex-direction: column-reverse;
+        margin: 0;
     }
 
     .steps-array .title {
@@ -744,13 +752,16 @@ body {
 
     .steps-array .array {
         height: 32px;
-        width: 705px;
+        width: 100% !important;
     }
 
     #steps {
+        max-width: 100% !important;
+        overflow-y: hidden;
+        overflow-x: auto !important;
         display: flex;
         flex-direction: row;
-        width: 705px;
+        /* width: 705px; */
         height: 32px;
     }
 
@@ -758,6 +769,7 @@ body {
         display: flex;
         flex-direction: row;
         width: 177px;
+        min-width: 177px;
         height: 32px;
         border-radius: 0 !important;
     }
@@ -771,26 +783,8 @@ body {
         align-items: center;
     }
 
-    .left-wrapper {
-        height: 80px;
-        width: 100%;
-        display: none;
-    }
-
-    .steps-array {
-        display: none;
-        flex-direction: column-reverse;
-        width: 100%;
-        margin: 0;
-    }
-
-    .left-wrapper .profile {
-        display: none;
-    }
-
-
     .back {
-        margin: 0px 0px 0px 80px;
+        margin: 0px 0px 0px 20px;
     }
 
     .learn {
@@ -800,7 +794,9 @@ body {
     #registration3 {
         display: flex;
         justify-content: center;
-        /* align-items: center; */
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
     }
 
     .registration-form {
@@ -808,8 +804,6 @@ body {
         padding: 0;
         display: flex;
         flex-direction: column;
-        /* justify-content: space-around;
-        align-items: space-around; */
     }
 
     .registration-form input {
@@ -876,5 +870,4 @@ body {
     .bot .logo-container {
         width: 80% !important;
     }
-
 }
