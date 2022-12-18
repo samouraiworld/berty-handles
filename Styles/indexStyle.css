@@ -11,6 +11,10 @@
 
 }
 
+input:focus {
+    outline: none;
+}
+
 button {
     cursor: pointer;
 }
@@ -35,6 +39,7 @@ body {
     gap: 40%;
     top: 0;
     left: 0;
+    z-index: 99;
 }
 
 .disabled {
@@ -49,6 +54,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 99;
 }
 
 #navbar li {
@@ -94,6 +100,7 @@ body {
     width: 100%;
     height: 600px;
     display: flex;
+    flex-direction: column;
     padding-bottom: 150px;
 }
 
@@ -104,7 +111,7 @@ body {
     justify-content: space-between;
     flex-direction: row;
     align-items: flex-start;
-    margin-top: 86px;
+    margin-top: 38px;
     justify-content: center;
     gap: 40px;
 }
@@ -116,7 +123,6 @@ body {
 }
 
 .content-container h1 {
-    display: flex;
     width: 430px;
     height: 208px;
     font-weight: 600;
@@ -142,46 +148,151 @@ body {
     color: #8589A6;
 }
 
-.content-container .txt-orange {
+.txt-orange {
     color: rgba(243, 161, 94, 1);
 }
 
-.content-container form {
-    margin-top: 20px;
+.bottom-container {
+    width: 100%;
+    height: 218px;
     display: flex;
-    width: 458px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+}
+
+.card {
+    height: 171px;
+    width: 472px;
+    background: #131A51;
+    border: 1px solid #20275E;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card .gradient {
+    height: 100%;
+    border-radius: 8px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #20275E;
+    background: linear-gradient(0deg, #E4CCFF 0%, rgba(19, 26, 81, 1) 100%);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.card:nth-child(2) .gradient {
+    background: linear-gradient(0deg, rgba(255, 148, 138, 1) 0%, rgba(19, 26, 81, 1) 100%);
+}
+
+.advanced {
+    position: absolute;
+    top: -30px;
+    height: 28px;
+    width: 130px;
+    background: #FF948A;
+    border: 1px solid #20275E;
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advanced p {
+    color: #020940 !important;
+}
+
+.bottom-container .text-container {
+    width: 97%;
+    margin-top: 12px;
+    padding-left: 5%;
+    z-index: 1;
+}
+
+.bottom-container h2 {
+    display: flex;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.bottom-container p {
+
+    font-weight: 700;
+    font-size: 13px;
+    color: #8589A6;
+}
+
+.bottom-container .search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 12px; */
+    z-index: 1;
+    height: 48px;
+}
+
+
+.bottom-container form {
+    /* margin-top: 20px; */
+    position: absolute;
+    display: flex;
+    width: 94%;
     height: 48px;
     background: #131A51;
     border: 1px solid #525BEC;
     border-radius: 8px;
-
+    bottom: 12px;
 }
 
-.content-container input {
-    width: 345px;
+.bottom-container input {
+    width: 100%;
     height: 48px;
     background: #131A51;
     font-weight: 700;
     font-size: 13px;
     border-radius: 8px;
     border: 0;
-    padding-left: 5px;
+    padding-left: 12px;
 }
 
-.content-container button {
+.bottom-container button {
     background-color: rgba(82, 91, 236, 1);
+    border: 1px solid rgba(82, 91, 236, 1);
     color: #fff;
     white-space: nowrap;
-    border-radius: 6px;
-    width: 110px;
-    height: 45px;
+    border-radius: 8px;
+    /* width: 110px; */
+    width: 33%;
+    height: 46px;
     font-family: 'IBM Plex Mono';
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
     line-height: 17px;
-    margin-top: 2px;
+    margin-top: 1px;
+    margin-right: 1px;
 }
+
+.card:nth-child(2) button {
+    width: 50%;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background: #E4CCFF;
+    border-radius: 0px 0px 8px 8px;
+    /* margin-top: 30.px; */
+}
+
+
 
 /* footer */
 
@@ -319,11 +430,34 @@ body {
 
 @media (max-width:1025px) {
 
+    #content {
+        display: flex;
+        height: 700px;
+        gap: 80px;
+    }
+
+
+    .content-container {
+        height: 450px;
+    }
+
     .content-container img {
         width: 222px;
         height: 214px;
         padding-top: 0;
     }
+
+    .bottom-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        height: 380px;
+    }
+
+    /* .card {
+        height: 171px;
+    } */
 
     #footer .col-container {
         gap: 25px;
@@ -351,9 +485,9 @@ body {
         height: 70px;
     }
 
-    #content {
+    /* #content {
         height: 570px;
-    }
+    } */
 
     #navbar {
         display: flex;
@@ -408,6 +542,7 @@ body {
         justify-content: space-around;
         align-items: center;
         margin-top: 0;
+
         gap: 0;
     }
 
