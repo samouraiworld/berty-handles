@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/Registration.module.css'
+import styles from '../styles/Registration2.module.css'
 import Link from 'next/link'
 
 

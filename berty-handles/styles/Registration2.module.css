@@ -83,20 +83,22 @@
   .close {
     display: none;
   }
+  
 
-/* footer */
+/* sfooter */
 
 .footer {
     width: 100%;
     height: 250px;
     background: rgba(82, 91, 236, 1);
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
 }
 
 .footer .colContainer {
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    width: 100%;
+    gap: 160px;
 }
 
 .colContainer .col1 {
@@ -198,33 +200,28 @@
     height: 20px;
 }
 
-/* Registration 1 */
-
-.registration {
-    width: 100%;
-    height: 670px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 80px;
-}
-
-.registration h2 {
-    font-size: 13px;
-}
-
 .title h2 {
     font-size: 13px;
     color: #8589A6;
     padding-bottom: 11px;
 }
 
+.leftWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 480px;
+    /* padding: 75px 0px 0px 0px; */
+}
+
 .stepsArray {
     display: flex;
     flex-direction: column;
-    width: 225px;
-    height: 220px;
-    padding: 75px 0px 0px 0px;
+    /* width: 225px; */
+    height: 220px !important;
+    margin-bottom: 120px;
+    /* padding: 75px 0px 0px 0px; */
 }
 
 .stepsArray .array {
@@ -283,170 +280,357 @@
     display: none;
 }
 
-.connectArray {
-    width: 664px;
-    height: 410px;
-    padding-top: 75px;
+/* Registration 3 */
+
+.registration3 {
+    width: 100%;
+    height: 1140px;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-start;
+    gap: 10%;
+}
+
+.registration3 .stepsArray {
+    height: 600px;
+    gap: 20px;
+    padding: 24px 0px 0px 236px;
+}
+
+.registration3 h2 {
+    font-size: 13px;
+}
+
+.back {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.back p {
+    padding: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    color: #8589A6;
+}
+
+.registrationForm .mint p {
+    margin-bottom: 0px !important;
+}
+
+.profile {
+    width: 224px;
+    height: 224px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background: #525BEC;
+    border-radius: 8px;
+    gap: 25px;
+    margin-bottom: 16px;
+}
+
+.profile img {
+    width: 104px;
+    height: 104px;
+}
+
+.profile p {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.profile .status {
+    display: flex;
+    width: 118px;
+    height: 26px;
+    background: #6AAB64;
+    border-radius: 0px 0px 5px 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.learn {
+    display: flex;
+    justify-content: center;
+    width: 224px;
+    height: 42px;
+    background: #020940;
+
+    border-radius: 8px;
+}
+
+.learn button {
+    background: #020940;
+    border: 1px solid #525BEC;
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.registrationForm {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0 0 0;
+    width: 664px;
     gap: 16px;
 }
 
-.connectArray .connect {
-    height: 48px;
+.registrationForm .mint {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    border: 1px solid #525BEC;
-    border-radius: 8px;
-    background: #131A51;
-    padding-left: 12px;
-}
-
-.connectArray .connect2 {
-    position: relative;
-    height: 48px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    border: 1px solid #525BEC;
-    border-radius: 8px;
-    background: #131A51;
-    padding-left: 12px;
-    gap: 15px;
-}
-
-.connectArray .connect2 img {
-    width: 24px;
-    height: 24px;
-}
-
-.connect2 .lineContainer {
-
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.availableBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 118px;
-    height: 46px;
-    background: rgba(106, 171, 100, 1);
-    border-radius: 8px;
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.connectArray .connectBtn {
-    width: 108px;
-    height: 32px;
-    background: #020940;
-    border: 1px solid #525BEC;
-    margin-right: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
-    border-radius: 5px;
-    font-family: 'IBM Plex Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.connectArray .info {
-    display: flex;
-    flex-direction: row;
+    /* margin-top: 74px; */
+    padding: 20px 0;
+    height: 60px;
     border: 1px solid #20275E;
     border-radius: 8px;
     gap: 16px;
-    padding: 20px 0 20px 20px;
+    padding-left: 20px;
 }
 
-.connectArray .info img {
-    height: 24px;
-    width: 24px;
-}
-
-.connectArray .textContainer {
-    width: 488px;
-}
-
-.connectArray .info h2 {
-    font-size: 20px !important;
-}
-
-
-.connectArray .info p {
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    color: rgba(133, 137, 166, 1);
-}
-
-.connectArray .info p:nth-child(3) {
-    font-size: 12px !important;
-}
-
-.connectArray .info .txtOrange {
-    color: #F3A15E;
-}
-
-.connectArray .connect.icons {
-    justify-content: flex-start !important;
-}
-
-.connectArray .continue {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-}
-
-.connectArray .continueBtn {
-    width: 118px;
-    height: 42px;
-    background: #ffffff00;
-    border: 1px solid rgba(82, 91, 236, 1);
-    border-radius: 8px;
+.mint p {
     font-weight: 700;
     font-size: 13px;
+    color: #8589A6;
 }
 
-.connectArray .btnLink .continueBtn {
-    background: #525BEC !important;
+.registrationForm li {
+    list-style: none;
+    height: 71px;
+    margin-bottom: 16px;
+
 }
 
-.registration2 {
+.registrationForm p {
+    font-weight: 700;
+    font-size: 13px;
+    color: #8589A6;
+    margin-bottom: 6px;
+}
+
+.registrationForm input {
+    text-decoration: none;
+    width: 664px;
+    height: 48px;
+    background: #131A51;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 0;
+    padding-left: 12px;
+}
+
+.registrationForm .continue {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+}
+
+.registrationForm button {
+    background-color: rgba(82, 91, 236, 1);
+    color: #fff;
+    white-space: nowrap;
+    border-radius: 8px;
+    width: 217px;
+    height: 42px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    margin-top: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.mobilePopup {
+    display: none;
+}
+
+.mobilePopup img {
+    display: none;
+}
+
+.cardPopup {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 600px;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 994;
+    background: #0303038d;
+}
+
+
+.card {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 404px;
+    height: 605px;
+    background: #020940;
+    border: 1px solid #20275E;
+    border-radius: 8px;
+    z-index: 995;
+}
+
+
+.card .top {
     display: flex;
     flex-direction: row;
-    gap: 80px;
-}
-
-.registration2 h2 {
-    font-size: 13px;
-}
-
-.registration2 .stepsArray .array li:nth-child(2) {
     justify-content: space-between;
-    padding-right: 17px;
-    border-radius: 8px 8px 0px 0px;
+    align-items: center;
+    margin: 20px;
+    width: 90%;
+}
+
+.card .top h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.card .top i {
+    cursor: pointer;
+}
+
+.card .mid {
+    width: 90%;
+    height: 396px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #6AAB64;
+    border-radius: 10px;
+    margin-bottom: 23px;
+}
+
+.card .mid .imgContainer {
+    width: 100%;
+    height: 356px;
     background: #131A51;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.registration2 .stepsArray .array li:nth-child(3) {
-    background: rgba(82, 91, 236, 1);
+.mid .imgContainer img {
+    width: 50%;
+    height: 50%
 }
 
-.registration2 .continue {
-    gap: 24px;
+.card .mid .infoContainer {
+    width: 100%;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
+
+.card .mid .infoContainer p {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    margin: 0px 8px;
+}
+
+.card .mid .infoContainer p:nth-child(2) {
+    padding: 4px 10px;
+    border-radius: 32px;
+    background: #468740;
+}
+
+.card .bot {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #20275E;
+    gap: 10px;
+}
+
+.card .bot .right {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.card .bot .grey-line {
+    height: 45px;
+    width: 1px;
+    background: #20275E;
+    margin-top: 22px;
+}
+
+.card .bot .left {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card .bot p {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    color: #8589A6;
+}
+
+.card .bot .logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 154px;
+    height: 45px;
+    border-radius: 8px;
+}
+
+.card .bot .right .logoContainer {
+    background: #131A51;
+    cursor: pointer;
+}
+
+.card .bot .left .logoContainer {
+    gap: 12px;
+}
+
+.card .bot .imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 70px;
+    background: #131A51;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 
 /* Media Queries */
 
@@ -455,7 +639,18 @@
     .footer .colContainer {
         gap: 50px;
     }
+
+    .registration3 {
+        gap: 50px;
+    }
 }
+
+/* @media (max-width:1350px) {
+
+    .leftWrapper {
+        width: 300px !important;
+    }
+} */
 
 @media (max-width:1025px) {
 
@@ -490,6 +685,7 @@
     .header {
         gap: 0;
         height: 70px;
+        position: fixed;
     }
 
     .navbar {
@@ -542,14 +738,22 @@
         display: none;
     }
 
-    .wrap {
+    .leftWrapper {
+        margin-top: 280px;
+        height: 80px;
         width: 100%;
     }
 
+    .leftWrapper .profile {
+        display: none;
+    }
+
     .stepsArray {
-        padding: 0;
+        padding: 0 !important;
         width: 100% !important;
         height: 32px;
+        flex-direction: column-reverse;
+        margin: 0;
     }
 
     .stepsArray .title {
@@ -563,9 +767,11 @@
 
     .steps {
         max-width: 100% !important;
+        overflow-y: hidden;
         overflow-x: auto !important;
         display: flex;
         flex-direction: row;
+        /* width: 705px; */
         height: 32px;
     }
 
@@ -587,36 +793,87 @@
         align-items: center;
     }
 
-    .registration {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 25px;
-        height: 640px;
-        /* overflow-y: hidden; */
+    .back {
+        margin: 0px 0px 0px 20px;
     }
 
-    .registration .connectArray {
+    .learn {
+        display: none;
+    }
+
+    .registration3 {
         display: flex;
-        justify-content: space-around;
-        padding: 0px;
-        /* width: 320px; */
-        width: 90%;
-        height: 480px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
     }
 
-    .connectArray .info {
+    .registrationForm {
+        width: 90% !important;
+        padding: 0;
+        display: flex;
         flex-direction: column;
     }
 
-    .connectArray .textContainer {
-        width: 90%;
+    .registrationForm input {
+        width: 100% !important;
     }
 
-}
+    .mobilePopup {
+        position: fixed;
+        height: 60px;
+        /* height: 186px; */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: end;
+        /* height: 100%; */
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: 995;
+    }
 
-@media screen and (max-width:350px) {
-    .registration {
-        gap: 80px
+    .mobilePopup #clickable {
+
+        display: flex;
+        width: 100%;
+        height: 90%;
+        background: rgba(46, 46, 46, 0.501);
+    }
+
+    .mobilePopup .profile {
+        margin-bottom: 0;
+        width: 100%;
+        height: 220px;
+        gap: 8px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .mobilePopup .profile .name p {
+        margin-bottom: 15px
+    }
+
+
+    .card {
+        width: 320px;
+        height: 492px;
+    }
+
+    .card .mid {
+        height: 67%;
+    }
+
+    .mid .imgContainer {
+        height: 100% !important;
+    }
+
+    .bot {
+        gap: 0px !important;
+    }
+
+    .bot .logoContainer {
+        width: 80% !important;
     }
 }
