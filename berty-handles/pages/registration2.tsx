@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import styles from '../styles/Registration.module.css'
+import styles from '../styles/Registration2.module.css'
 import Link from 'next/link'
 
 
-export default function Home() {
+export default function Registration2() {
   return (
     <>
       <Head>
@@ -30,10 +30,14 @@ export default function Home() {
     </div>
     </section>
 
-    <section className={styles.registration}>
-
-        <div className={styles.wrap}>
+    <section className={styles.registration3}>
+        <div className={styles.leftWrapper}>
             <div className={styles.stepsArray}>
+                <div className={styles.back}>
+                    <a href="registration.html"><img src="../img/arrow.png" alt="Back arrow icon"/>
+                    </a>
+                    <p>Back</p>
+                </div>
                 <div className={styles.title}>
                     <h2>REGISTRATION STEPS</h2>
                 </div>
@@ -45,12 +49,17 @@ export default function Home() {
                                 <img src="../img/valid_icon.svg" alt="Green completion icon"/>
                             </a>
                         </li>
-                        <li className={`${styles.current} ${styles.li1}`}>
-                            <h2>2/ Connect Wallet</h2>
-                            <img src="../img/valid_icon.svg" alt="Green completion icon"/>
+                        <li className={styles.valid}>
+                            <a href="registration.html" className={styles.retLi}>
+                                <h2>2/ Connect Wallet</h2>
+                                <img src="../img/valid_icon.svg" alt="Green completion icon"/>
+                            </a>
                         </li>
-                        <li className={styles.li2}>
-                            <h2>3/ Claim Allocation</h2>
+                        <li className={styles.valid}>
+                            <a href="registration.html" className={styles.retLi}>
+                                <h2>3/ Claim Allocation</h2>
+                                <img src="../img/valid_icon.svg" alt="Green completion icon"/>
+                            </a>
                         </li>
                         <li>
                             <h2>4/ Registration</h2>
@@ -58,58 +67,69 @@ export default function Home() {
                     </ul>
                 </div>
             </div>
+            <div className={styles.profile}>
+                <div className={styles.status}>
+                    <p>Available</p>
+                </div>
+                <img src="../img/berty_img.svg" alt="image of a parrot" />
+                <p>brucelee.berty</p>
+            </div>
+            <div className={styles.learn}>
+                <button className={`${styles.continueBtn} ${styles.button} ${styles.hov}`}>Learn More</button>
+            </div>
 
         </div>
 
-        <div className={styles.connectArray}>
-            <div className={styles.connect}>
-                <h2>brucelee.berty</h2>
-                <div className={styles.availableBtn}>Available</div>
+        <div className={styles.registrationForm}>
+            <div className={styles.mint}>
+                <img src="../img/coin.svg" />
+                <p>The mint cost for this token is 100 $$$</p>
             </div>
-            <div className={styles.info}>
-                <img src="../img/info_icon.svg" alt="information icon"/>
-                <div className={styles.textContainer}>
-                    <h2>What is a decentralized handle?</h2>
-                    <p>Your account will be registred on a public distributed ledger, allowing to book it without
-                        any
-                        centralised authority. To register your account, you’ll need a wallet (Metamask or Keplr)
-                        and
-                        sign a transaction.</p>
-                    <p><span className={styles.txtOrange}>4503 / 10 000</span> bertians have already booked their handle</p>
-                </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.reg1a}`}>
-                <img src="../img/metamask_logo.svg" alt="Metamask icon"/>
-                <div className={styles.lineContainer}>
-                    <h2>Metamask</h2>
-                    <button className={`${styles.connectBtn} ${styles.hov}`}>Connect</button>
-                </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.reg1b}`}>
-                <img src="../img/kepler_logo.svg" alt="keplr icon"/>
-                <div className={styles.lineContainer}>
-                    <h2>Keplr Wallet</h2>
-                    <button className={`${styles.connectBtn} ${styles.hov}`}>Connect</button>
-                </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2a}`}>
-                <img src="../img/berty_mini_logo.svg" alt="minparrot icon"/>
-                <div className={styles.lineContainer}>
-                    <h2>Claim Berty Supporter Allocation (FreeMint)</h2>
-                </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2b}`}>
-                <img src="../img/kepler_logo.svg" alt="coinbase icon"/>
-                <div className={styles.lineContainer}>
-                    <h2>Support the NGO by paying your handle</h2>
-                </div>
-            </div>
-            <div className={`${styles.continue} ${styles.reg1c}`}>
-                <button className={`${styles.continueBtn} ${styles.hov}`}>Continue</button>
-            </div>
-            <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2c}`}>
-                <button className={`${styles.continueBtn} ${styles.hov}`}>Learn More</button>
-                <a className={`${styles.btnLink} ${styles.revhov}`} href="/registration2"><button className={styles.continueBtn}>Continue</button></a>
+            <ul>
+                <li>
+                    <p>Name (optional)</p>
+                    <input type="text" placeholder="Type Name here" />
+                </li>
+                <li>
+                    <p>Bio (optional)</p>
+                    <input type="text" placeholder="Type Bio here" />
+                </li>
+                <li>
+                    <p>Image URL (optional)</p>
+                    <input type="text" placeholder="Insert image URL here" />
+                </li>
+                <li>
+                    <p>User Header Profile (optional)</p>
+                    <input type="text" placeholder="Insert image URL here" />
+                </li>
+                <li>
+                    <p>Email (optional)</p>
+                    <input type="text" placeholder="Type Email here" />
+                </li>
+                <li>
+                    <p>Website (optional)</p>
+                    <input type="text" placeholder="Type/insert link here" />
+                </li>
+                <li>
+                    <p>Twitter (optional)</p>
+                    <input type="text" placeholder="Link to Twitter" />
+                </li>
+                <li>
+                    <p>Keybase.io (optional)</p>
+                    <input type="text" placeholder="Type/insert link here" />
+                </li>
+                <li>
+                    <p>Validator operator address (optional)</p>
+                    <input type="text" placeholder="Type/insert link here" />
+                </li>
+
+                <li>
+                    <p>User Header Profile (optional) (optional)</p>
+                    <input type="text" placeholder="Insert image URL here" />
+                </li>
+            </ul>
+            <div className={styles.continue}>
+                <button className={` ${styles.button} ${styles.openCard} ${styles.continueBtn}`}> Register your username</button>
             </div>
         </div>
     </section>
