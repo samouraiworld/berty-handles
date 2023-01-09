@@ -40,7 +40,7 @@ export default function Home() {
                 <div className={styles.array}>
                     <ul className={styles.steps}>
                         <li className={styles.valid}>
-                            <a href="../index.html" className={styles.retLi}>
+                            <a href="/" className={styles.retLi}>
                                 <h2>1/ Search username</h2>
                                 <img src="../img/valid_icon.svg" alt="Green completion icon"/>
                             </a>

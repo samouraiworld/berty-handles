@@ -34,7 +34,7 @@ export default function Registration2() {
         <div className={styles.leftWrapper}>
             <div className={styles.stepsArray}>
                 <div className={styles.back}>
-                    <a href="registration.html"><img src="../img/arrow.png" alt="Back arrow icon"/>
+                    <a href="/registration"><img src="../img/arrow.png" alt="Back arrow icon"/>
                     </a>
                     <p>Back</p>
                 </div>
@@ -44,19 +44,19 @@ export default function Registration2() {
                 <div className={styles.array}>
                     <ul className={styles.steps}>
                         <li className={styles.valid}>
-                            <a href="../index.html" className={styles.retLi}>
+                            <a href="/" className={styles.retLi}>
                                 <h2>1/ Search username</h2>
                                 <img src="../img/valid_icon.svg" alt="Green completion icon"/>
                             </a>
                         </li>
                         <li className={styles.valid}>
-                            <a href="registration.html" className={styles.retLi}>
+                            <a href="/registration" className={styles.retLi}>
                                 <h2>2/ Connect Wallet</h2>
                                 <img src="../img/valid_icon.svg" alt="Green completion icon"/>
                             </a>
                         </li>
                         <li className={styles.valid}>
-                            <a href="registration.html" className={styles.retLi}>
+                            <a href="/registration" className={styles.retLi}>
                                 <h2>3/ Claim Allocation</h2>
                                 <img src="../img/valid_icon.svg" alt="Green completion icon"/>
                             </a>

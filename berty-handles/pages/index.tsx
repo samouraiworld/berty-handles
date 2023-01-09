@@ -2,7 +2,6 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
-
 export default function Home() {
   return (
     <>
@@ -73,7 +72,7 @@ export default function Home() {
             onchain-handle.<br/><span>4503</span> bertians have already booked thier handle</p>
         </div>
         <div className={styles.search}>
-          <form action="./Pages/registration.html" method="get">
+          <form action="/registration" method="get">
             <input type="text" placeholder="Verify availablity..." />
             <button className={styles.button} >Connect Wallet</button>
           </form>
