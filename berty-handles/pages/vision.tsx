@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Vision.module.css'
-import Link from 'next/link'
+import Header from '../components/header/header'
+import Footer from '../components/footer/footer'
 
 
 export default function Vision() {
@@ -14,22 +15,8 @@ export default function Vision() {
       </Head>
     
       <div className={styles.Body}>
-      <section className={styles.header}>
-          <Link href="/">
-            <img className={styles.logo} alt="Berty's company logo" src="../img/logo.svg" />
-          </Link>
-      <div>
-        <ul className={styles.navbar}>
-          <li><Link className={styles.hov} href="/vision">Vision</Link></li>
-          <li><Link className={styles.hov} href="/roadmap">Roadmap</Link></li>
-          <li><Link className={styles.hov} href="/">Contribute</Link></li>
-          <a href="#" className={styles.close}><i className={`${styles.fa} ${styles.faTimes}`}></i></a>
-        </ul>
-    </div>
-    <div  className={`${styles.barContainer} ${styles.mobile}`}>
-      <i className={`${styles.faSolid} ${styles.faBars} ${styles.bar}`}></i>
-    </div>
-    </section>
+    
+      <Header/>
 
     <section className={styles.content}>
         <div className={styles.contentContainer}>
@@ -200,56 +187,8 @@ export default function Vision() {
         </div>
     </section>
 
-    {/* FOOTER */}
+    <Footer/>
 
-    <section className={styles.footer}>
-      <div className={styles.colContainer}>
-      <div className={styles.col1}>
-        <img className={styles.logo} src="../img/berty_footer_logo.svg" alt="Berty' society logo"/>
-        <p>The Berty app is developed by the NGO Berty Technologies.</p>
-      </div>
-
-      <div className={`${styles.col2} ${styles.strong}`}>
-        <a href="#">Features</a>
-        <a href="#">Challenges</a>
-        <a href="#">FAQ</a>
-        <a href="#">Community</a>
-        <a href="#">Blog</a>
-      </div>
-
-      <div className={styles.col2}>
-        <h4>Developpers</h4>
-        <a href="#">Docs</a>
-        <a href="#">Our Projects</a>
-        <a href="#">Contribute</a>
-        <a href="#">Projects we love</a>
-      </div>
-
-      <div className={styles.col2}>
-        <h4>About Us</h4>
-        <a href="#">Jobs</a>
-        <a href="#">Newsletter</a>
-        <a href="#">Contact</a>
-        <a href="#">Press</a>
-        <a href="#">Store</a>
-        <a href="#">Assets</a>
-      </div>
-      </div>
-
-      <div className={styles.copyright}>
-      <div className={styles.copyrightTxt}>
-        <p>Berty™️ is a registered trademark © 2018-2022 Berty Technologies - All right reserved - Terms & Conditions -
-          Privacy Policy</p>
-      </div>
-      <div className={styles.follow}>
-        <img className={styles.logo} src="../img/discord_logo.svg" alt="Discord logo"/>
-        <img className={styles.logo} src="../img/twitter_logo.svg" alt="Tweeter logo"/>
-        <img className={styles.logo} src="../img/github_logo.svg" alt="Github logo"/>
-        <img className={styles.logo} src="../img/unknown_logo.svg" alt="Unknown logo"/>
-        <img className={styles.logo} src="../img/linkedin_logo.svg" alt="Linkedin logo"/>
-      </div>
-    </div>
-    </section>
     </div>
     </>
   )

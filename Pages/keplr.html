@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Add network to keplr</title>
+    <style>
+      input {width: 256px; padding: 5px}
+      td {padding: 5px}
+    </style>
+    <link rel="icon" type="image/svg+xml" href="https://docs.keplr.app/favicon-svg.svg">
+  </head>
+  <body>
+    <div style="max-width: 512px; margin: 0 auto; padding-top: 100px">
+      <table>
+        <tr>
+          <td>chainId</td>
+          <td><input id="chainId" value="xxxChain"></td>
+        </tr>
+        <tr>
+          <td>rpc</td>
+          <td><input id="rpc" value="http://ip:26657"></td>
+        </tr>
+        <tr>
+          <td>rest</td>
+          <td><input id="rest" value="http://ip:1317"></td>
+        </tr>
+        <tr>
+          <td>prefix</td>
+          <td><input id="prefix" value="jolt"></td>
+        </tr>
+        <tr>
+          <td>coinDenom</td>
+          <td><input id="coinDenom" value="VUSD"></td>
+        </tr>
+        <tr>
+          <td>coinDecimals</td>
+          <td><input id="coinDecimals" value="0"></td>
+        </tr>
+        <tr>
+          <td>gasPriceStep</td>
+          <td><input id="gasPriceStep" value="0.01"></td>
+        </tr>
+        <tr>
+          <td>walletUrlForStaking</td>
+          <td><input id="walletUrlForStaking" value="url"></td>
+        </tr>
+        <tr>
+          <td><button onclick="submit()">Submit</button></td>
+          <td></td>
+        </tr>
+      </table>
+      <p>Usage: https://docs.keplr.app/api/suggest-chain.html</p>
+    </div>
+    <script>
+      submit = async () => {
+        if (!keplr) {
+          alert("Please install keplr extension"); return
+        }
+        const prefix = document.getElementById('prefix').value
+        const coinDenom = document.getElementById('coinDenom').value
+        const coinDecimals = parseInt(document.getElementById('coinDecimals').value)
+        const gasPriceStep = Number(document.getElementById('gasPriceStep').value)
+        await keplr.experimentalSuggestChain({
+          chainId: document.getElementById('chainId').value,
+          chainName: document.getElementById('chainId').value,
+          rpc: document.getElementById('rpc').value,
+          rest: document.getElementById('rest').value,
+          bip44: {
+            coinType: 118,
+          },
+          bech32Config: {
+            bech32PrefixAccAddr: prefix,
+            bech32PrefixAccPub: prefix + "pub",
+            bech32PrefixValAddr: prefix + "valoper",
+            bech32PrefixValPub: prefix + "valoperpub",
+            bech32PrefixConsAddr: prefix + "valcons",
+            bech32PrefixConsPub: prefix + "valconspub",
+          },
+          currencies: [
+            { 
+              coinDenom: coinDenom,
+              coinMinimalDenom: coinDenom,
+              coinDecimals: coinDecimals
+            }, 
+          ],
+          feeCurrencies: [
+            {
+              coinDenom: coinDenom, 
+              coinMinimalDenom: coinDenom,
+              coinDecimals: coinDecimals
+            },
+          ],
+          stakeCurrency: {
+            coinDenom: coinDenom,
+            coinMinimalDenom: coinDenom,
+            coinDecimals: coinDecimals
+          },
+          coinType: 118,
+          gasPriceStep: { 
+            low: gasPriceStep,
+            average: gasPriceStep*2,
+            high: gasPriceStep*3,
+          },
+          walletUrlForStaking: document.getElementById('walletUrlForStaking').value
+        })
+      }
+    </script>
+  </body>
+</html>
