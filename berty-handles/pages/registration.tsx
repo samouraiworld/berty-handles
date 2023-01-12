@@ -7,13 +7,7 @@ import KeplrButton from './api/keplr'
 
 export default function Registration() {
 
-  const BERTY_PARAMS = {
-    chainId: 'berty',
-    chainName: 'berty test',
-    rpc: 'https://rpc-mocha.pops.one',
-    rest: 'https://api-mocha.pops.one/'
-  }
-
+  
   return (
     <>
       <Head>
@@ -78,14 +72,14 @@ export default function Registration() {
                 <img src="../img/metamask_logo.svg" alt="Metamask icon"/>
                 <div className={styles.lineContainer}>
                     <h2>Metamask</h2>
-                    <button className={`${styles.connectBtn} ${styles.hov}`}>Connect</button>
+                    <button className={`${styles.connectBtn} ${styles.hov} ${styles.button}`}>Connect</button>
                 </div>
             </div>
             <div className={`${styles.connect2} ${styles.reg1b}`}>
                 <img src="../img/kepler_logo.svg" alt="keplr icon"/>
                 <div className={styles.lineContainer}>
                     <h2>Keplr Wallet</h2>
-                    <KeplrButton params={BERTY_PARAMS} className={`${styles.connectBtn} ${styles.hov}`}>Connect</KeplrButton>
+                    <KeplrButton className={`${styles.connectBtn} ${styles.hov} ${styles.button}`}>Connect</KeplrButton>
                 </div>
             </div>
             <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2a}`}>
@@ -101,11 +95,11 @@ export default function Registration() {
                 </div>
             </div>
             <div className={`${styles.continue} ${styles.reg1c}`}>
-                <button className={`${styles.continueBtn} ${styles.hov}`}>Continue</button>
+                <button className={`${styles.continueBtn} ${styles.hov} ${styles.button}`}>Continue</button>
             </div>
             <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2c}`}>
-                <button className={`${styles.continueBtn} ${styles.hov}`}>Learn More</button>
-                <a className={`${styles.btnLink} ${styles.revhov}`} href="/registration2"><button className={styles.continueBtn}>Continue</button></a>
+                <button className={`${styles.continueBtn} ${styles.hov} ${styles.button}`}>Learn More</button>
+                <a className={`${styles.btnLink} ${styles.revhov} ${styles.button}`} href="/registration2"><button className={styles.continueBtn}>Continue</button></a>
             </div>
         </div>
     </section>

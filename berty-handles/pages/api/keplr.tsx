@@ -1,18 +1,18 @@
 import React, { Children } from 'react'
 
 
-const KeplrButton = ({params, children, className}: any) => {
+const KeplrButton = ({children, className}: any) => {
     
 
-        async function add() {
+    async function add() {
     if (!window.keplr) {
         alert("Please install keplr extension");
     } else {
         if (window.keplr.experimentalSuggestChain){
           try {
                 await window.keplr.experimentalSuggestChain({
-                        chainId: "mychain-1",
-                        chainName: "test-chain",
+                        chainId: "bertychain-1",
+                        chainName: "Berty-Test-chain",
                         rpc: "http://123.456.789.012:26657",
                         rest: "http://123.456.789.012:1317",
                         bip44: {
@@ -58,11 +58,8 @@ const KeplrButton = ({params, children, className}: any) => {
             alert("Failed to suggest the chain");
           }
         }
-        const chainId = params.chainId;
-        // Enabling before using the Keplr is recommended.
-        // This method will ask the user whether to allow access if they haven't visited this website.
-        // Also, it will request that the user unlock the wallet if the wallet is locked.
-        await window.keplr.enable(chainId);
+        // const chainId = params.chainId;
+        // await window.keplr.enable(chainId);
     }
   }
 
