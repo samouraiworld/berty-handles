@@ -1,7 +1,11 @@
 import React, { Children } from 'react'
 
+export interface keplrProps{
+    children: any
+    className: string
+}
 
-const KeplrButton = ({children, className}: any) => {
+const KeplrButton = ({children, className}: keplrProps) => {
     
 
     async function add() {
