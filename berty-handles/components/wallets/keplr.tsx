@@ -15,8 +15,8 @@ const KeplrButton = ({children, className}: keplrProps) => {
         if (window.keplr.experimentalSuggestChain){
           try {
                 await window.keplr.experimentalSuggestChain({
-                        chainId: "bertychain-1",
-                        chainName: "Berty-Test-chain",
+                        chainId: "cosmos-test",
+                        chainName: "Cosmos-test",
                         rpc: "http://123.456.789.012:26657",
                         rest: "http://123.456.789.012:1317",
                         bip44: {

@@ -2,8 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Registration.module.css'
 import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
-import KeplrButton from './api/keplr'
-import { chainTest } from './api/chain/chainTest'
+import KeplrButton from '../components/wallets/keplr'
 
 export default function Registration() {
 
