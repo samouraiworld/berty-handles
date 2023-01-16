@@ -7,6 +7,7 @@ export interface keplrProps{
 
 const KeplrButton = ({children, className}: keplrProps) => {
     
+// ENDPOINTS TEST EN ATTENDANT ENDPOINTS SPÉCIFIQUES A BERTY
 
     async function add() {
     if (!window.keplr) {
@@ -62,8 +63,6 @@ const KeplrButton = ({children, className}: keplrProps) => {
             alert("Failed to suggest the chain");
           }
         }
-        // const chainId = params.chainId;
-        // await window.keplr.enable(chainId);
     }
   }
 
