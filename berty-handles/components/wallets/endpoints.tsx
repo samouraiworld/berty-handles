@@ -113,16 +113,16 @@ export const ethereumEndpoints: KeplrEndpoints = {
     },
     currencies: [ 
         { 
-            coinDenom: "0x0000000000000000000000000000000000000000", 
-            coinMinimalDenom: "ETH", 
+            coinDenom: "ETH", 
+            coinMinimalDenom: "0x0000000000000000000000000000000000000000", 
             coinDecimals: 18, 
             coinGeckoId: "ethereum", 
         }, 
     ],
     feeCurrencies: [
         {
-            coinDenom: "0x0000000000000000000000000000000000000000",
-            coinMinimalDenom: "ETH",
+            coinDenom: "ETH",
+            coinMinimalDenom: "0x0000000000000000000000000000000000000000",
             coinDecimals: 18,
             coinGeckoId: "ethereum",
             gasPriceStep: {
@@ -133,8 +133,8 @@ export const ethereumEndpoints: KeplrEndpoints = {
         },
     ],
     stakeCurrency: {
-        coinDenom: "0x0000000000000000000000000000000000000000",
-        coinMinimalDenom: "ETH",
+        coinDenom: "ETH",
+        coinMinimalDenom: "0x0000000000000000000000000000000000000000",
         coinDecimals: 18,
         coinGeckoId: "ethereum",
     }
@@ -159,16 +159,16 @@ export const ethereumGoerli: KeplrEndpoints = {
     },
     currencies: [ 
         { 
-            coinDenom: "0x0000000000000000000000000000000000000000", 
-            coinMinimalDenom: "ETH", 
+            coinDenom: "ETH", 
+            coinMinimalDenom: "0x0000000000000000000000000000000000000000", 
             coinDecimals: 18, 
             coinGeckoId: "ethereum", 
         }, 
     ],
     feeCurrencies: [
         {
-            coinDenom: "0x0000000000000000000000000000000000000000",
-            coinMinimalDenom: "ETH",
+            coinDenom: "ETH",
+            coinMinimalDenom: "0x0000000000000000000000000000000000000000",
             coinDecimals: 18,
             coinGeckoId: "ethereum",
             gasPriceStep: {
@@ -179,8 +179,8 @@ export const ethereumGoerli: KeplrEndpoints = {
         },
     ],
     stakeCurrency: {
-        coinDenom: "0x0000000000000000000000000000000000000000",
-        coinMinimalDenom: "ETH",
+        coinDenom: "ETH",
+        coinMinimalDenom: "0x0000000000000000000000000000000000000000",
         coinDecimals: 18,
         coinGeckoId: "ethereum",
     }
