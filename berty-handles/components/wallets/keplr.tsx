@@ -28,7 +28,7 @@ const endpoints ={
 const EnableKeplr = async() => {
     const Keplr = window.keplr
     try {
-        await Keplr?.enable(endpoints.cosmosHubTheta.chainId)
+        await Keplr?.enable(endpoints.teritoriEndpoints.chainId)
         .then(() => setKeplrEnabled(true))
     } catch (err) {
         console.log(`Error enabling Keplr: ${err}`);
@@ -43,7 +43,7 @@ const EnableKeplr = async() => {
         if (window.keplr.experimentalSuggestChain){
 
           try {
-                await window.keplr.experimentalSuggestChain(endpoints.cosmosHubTheta)
+                await window.keplr.experimentalSuggestChain(endpoints.teritoriEndpoints)
                 .then(() => EnableKeplr())
           } catch {
             alert("Failed to suggest the chain");
