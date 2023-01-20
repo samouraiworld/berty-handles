@@ -1,6 +1,9 @@
+import { KeplrEndpoints } from "./types"
+
+
 // ENDPOINTS EN ATTENDANT ENDPOINTS SPÉCIFIQUES A BERTY
 
-export const teritoriTestEndpoints = {
+export const teritoriTestEndpoints: KeplrEndpoints = {
         chainId: "teritori-testnet-v3",
         chainName: "Teritori Testnet",
         rpc: "https://rpc.testnet.teritori.com",
@@ -46,7 +49,7 @@ export const teritoriTestEndpoints = {
 }
 
 
-export const teritoriEndpoints = {
+export const teritoriEndpoints: KeplrEndpoints = {
         chainId: "teritori-1",
         chainName: "Teritori",
         rpc: "https://rpc.mainnet.teritori.com",
@@ -92,7 +95,7 @@ export const teritoriEndpoints = {
 }
 
 
-export const ethereumEndpoints = {
+export const ethereumEndpoints: KeplrEndpoints = {
     chainId: "1",
     chainName: "Ethereum",
     rpc: "https://ethereum.publicnode.com",
@@ -136,7 +139,9 @@ export const ethereumEndpoints = {
         coinGeckoId: "ethereum",
     }
 }
-export const ethereumGoerli = {
+
+
+export const ethereumGoerli: KeplrEndpoints = {
     chainId: "5",
     chainName: "Ethereum Goerli",
     rpc: "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
@@ -183,7 +188,7 @@ export const ethereumGoerli = {
 
 
 
-export const cosmosHub = {
+export const cosmosHub: KeplrEndpoints = {
     chainId: "cosmoshub-4",
     chainName: "cosmoshub-4",
     rpc: "https://rpc-cosmoshub-ia.cosmosia.notional.ventures",
@@ -229,7 +234,7 @@ export const cosmosHub = {
 }
 
 
-export const cosmosHubTheta = {
+export const cosmosHubTheta: KeplrEndpoints = {
     chainId: "theta-testnet-001",
     chainName: "Cosmos Hub Theta",
     rpc: "https://cosmos-testnet-rpc.allthatnode.com:26657",
