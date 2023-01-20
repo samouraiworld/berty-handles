@@ -29,7 +29,7 @@ const EnableKeplr = async() => {
     const Keplr = window.keplr
     try {
         await Keplr?.enable(endpoints.teritoriEndpoints.chainId)
-        setKeplrEnabled(true);
+        .then(() => setKeplrEnabled(true))
     } catch (err) {
         console.log(`Error enabling Keplr: ${err}`);
       }
