@@ -1,64 +1,50 @@
-import React, { Children } from 'react'
+import React, { useState } from 'react'
+import { 
+    teritoriTestEndpoints, 
+    teritoriEndpoints, 
+    cosmosHub, 
+    cosmosHubTheta, 
+    ethereumEndpoints, 
+    ethereumGoerli 
+} from './endpoints'
 
-export interface keplrProps{
-    children: any
+export interface KeplrProps {
     className: string
 }
 
-const KeplrButton = ({children, className}: keplrProps) => {
-    
-// ENDPOINTS TEST EN ATTENDANT ENDPOINTS SPÉCIFIQUES A BERTY
+const KeplrButton = ({className}: KeplrProps) => {    
 
-    async function add() {
+const [keplrEnabled, setKeplrEnabled] = useState(false);
+
+const endpoints ={
+    teritoriEndpoints,
+    teritoriTestEndpoints,
+    cosmosHub,
+    cosmosHubTheta,
+    ethereumEndpoints,
+    ethereumGoerli
+}
+
+const EnableKeplr = async() => {
+    const Keplr = window.keplr
+    try {
+        await Keplr?.enable(endpoints.teritoriEndpoints.chainId)
+        setKeplrEnabled(true);
+    } catch (err) {
+        console.log(`Error enabling Keplr: ${err}`);
+      }
+}
+
+
+    const add = async() => {
     if (!window.keplr) {
-        alert("Please install keplr extension");
+        window.open('https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap', '_blank')
     } else {
         if (window.keplr.experimentalSuggestChain){
+
           try {
-                await window.keplr.experimentalSuggestChain({
-                        chainId: "cosmos-test",
-                        chainName: "Cosmos-test",
-                        rpc: "http://123.456.789.012:26657",
-                        rest: "http://123.456.789.012:1317",
-                        bip44: {
-                            coinType: 118,
-                        },
-                        bech32Config: {
-                            bech32PrefixAccAddr: "cosmos",
-                            bech32PrefixAccPub: "cosmos" + "pub",
-                            bech32PrefixValAddr: "cosmos" + "valoper",
-                            bech32PrefixValPub: "cosmos" + "valoperpub",
-                            bech32PrefixConsAddr: "cosmos" + "valcons",
-                            bech32PrefixConsPub: "cosmos" + "valconspub",
-                        },
-                        currencies: [ 
-                            { 
-                                coinDenom: "ATOM", 
-                                coinMinimalDenom: "uatom", 
-                                coinDecimals: 6, 
-                                coinGeckoId: "cosmos", 
-                            }, 
-                        ],
-                        feeCurrencies: [
-                            {
-                                coinDenom: "ATOM",
-                                coinMinimalDenom: "uatom",
-                                coinDecimals: 6,
-                                coinGeckoId: "cosmos",
-                                gasPriceStep: {
-                                    low: 0.01,
-                                    average: 0.025,
-                                    high: 0.04,
-                                },
-                            },
-                        ],
-                        stakeCurrency: {
-                            coinDenom: "ATOM",
-                            coinMinimalDenom: "uatom",
-                            coinDecimals: 6,
-                            coinGeckoId: "cosmos",
-                        },
-                    });
+                await window.keplr.experimentalSuggestChain(endpoints.teritoriEndpoints)
+                .then(() => EnableKeplr())
           } catch {
             alert("Failed to suggest the chain");
           }
@@ -67,7 +53,14 @@ const KeplrButton = ({children, className}: keplrProps) => {
   }
 
   return (
-      <button className={className} onClick={add}>{children}</button> 
+    <div>
+    { keplrEnabled ? 
+    <button className={className} disabled>Connected</button>
+         :
+     <button className={className} onClick={add}>Connect</button>
+     }    
+     
+    </div>
   )
 } 
 

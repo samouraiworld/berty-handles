@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/wallet/index.js", "components/wallet/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/types/index.js", "components/types/index.js"],
   "exclude": ["node_modules"]
 }

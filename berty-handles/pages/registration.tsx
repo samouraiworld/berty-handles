@@ -77,7 +77,7 @@ export default function Registration() {
                 <img src="../img/kepler_logo.svg" alt="keplr icon"/>
                 <div className={styles.lineContainer}>
                     <h2>Keplr Wallet</h2>
-                    <KeplrButton className={`${styles.connectBtn} ${styles.hov} ${styles.button}`}>Connect</KeplrButton>
+                    <KeplrButton className={`${styles.connectBtn} ${styles.hov} ${styles.button}`}/>
                 </div>
             </div>
             <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2a}`}>
