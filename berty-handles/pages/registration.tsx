@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Registration.module.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
-import KeplrButton from '../components/wallets/keplr';
+import KeplrButton from '../components/wallets/Keplr/keplr';
 
 export default function Registration() {
   return (
