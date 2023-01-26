@@ -1,0 +1,47 @@
+.buttonBase {
+    padding-left: 28px;
+    padding-right: 28px;
+    height: 42px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primaryButton {
+    background: #525BEC;
+    border: 1px solid #525BEC;
+}
+
+.primaryButton:hover {
+    background: #131A51;
+    border: 1px solid white;
+}
+
+.primaryButton.buttonDisabled {
+    color: rgba(133, 137, 166, 1);
+}
+
+.primaryButton.buttonDisabled:hover {
+    background: #525BEC;
+    border: 1px solid #525BEC;
+    cursor: default;
+}
+
+.secondaryButton {
+    background: #020940;
+    border: 1px solid #525BEC;
+}
+
+.secondaryButton:hover {
+    background: rgba(82, 91, 236, 1);
+}
+
+.secondaryButton.buttonDisabled {
+    color: rgba(133, 137, 166, 1);
+}
+
+.secondaryButton.buttonDisabled:hover {
+    background: #020940;
+    border: 1px solid #525BEC;
+    cursor: default;
+}

@@ -1,9 +1,18 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
+import cn from "classnames";
+import Head from "next/head";
+
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import { PrimaryButton } from "../components/PrimaryButton";
+import { useCollectionStats } from "../hooks/useCollectionStats";
+import { nsContractAddress } from "../lib/config";
+import { fontStyle } from "../lib/style";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const { data: collectionStats } = useCollectionStats(
+    `tori-${nsContractAddress}`
+  );
   return (
     <>
       <Head>
@@ -12,7 +21,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.Body}>
+      <div className={styles.body}>
         <Header />
 
         <section className={styles.content}>
@@ -23,68 +32,89 @@ export default function Home() {
             <div className={styles.right}>
               <div className={styles.text1}>
                 <h1>
-                  Berty, the future-proof <span className={styles.txtOrange}>web3</span> messenger
-                  is coming soon....
+                  Berty, the future-proof{" "}
+                  <span className={styles.txtOrange}>web3</span> messenger is
+                  coming soon....
                 </h1>
               </div>
             </div>
           </div>
           <div className={styles.bottomContainer}>
             <div className={styles.card}>
-              <div className={styles.gradient}></div>
-              <div className={styles.textContainer}>
-                <h2>Subscribe to the Newsletter</h2>
-                <p>
-                  Stay up to date with the news from our team and be the first to find out when
-                  Berty Messenger will be ready!
-                </p>
+              <div className={styles.gradient} />
+              <div className={styles.cardContent}>
+                <div className={styles.textContainer}>
+                  <h2 className={styles.cardTitle}>
+                    Subscribe to the Newsletter
+                  </h2>
+                  <p style={fontStyle()}>
+                    Stay up to date with the news from our team and be the first
+                    to find out when Berty Messenger will be ready!
+                  </p>
+                </div>
+                <div className={styles.search}>
+                  <form
+                    action="https://tech.us20.list-manage.com/subscribe/post?u=5ca3993c7f0b8f646dcda714b&amp;id=4d7828715b&amp;f_id=002d95e5f0"
+                    method="post"
+                    id="mc-embedded-subscribe-form"
+                    name="mc-embedded-subscribe-form"
+                  >
+                    <input
+                      className={styles.cardInput}
+                      type="text"
+                      name="EMAIL"
+                      placeholder="Enter your email here"
+                      id="mce-EMAIL"
+                      required
+                    />
+                    <PrimaryButton
+                      type="submit"
+                      value="Subscribe"
+                      name="subscribe"
+                      id="mc-embedded-subscribe"
+                    >
+                      Sign-up
+                    </PrimaryButton>
+                  </form>
+                </div>
               </div>
-              <div className={styles.search}>
-                <form
-                  action="https://tech.us20.list-manage.com/subscribe/post?u=5ca3993c7f0b8f646dcda714b&amp;id=4d7828715b&amp;f_id=002d95e5f0"
-                  method="post"
-                  id="mc-embedded-subscribe-form"
-                  name="mc-embedded-subscribe-form">
-                  <input
-                    type="text"
-                    name="EMAIL"
-                    placeholder="Enter your email here"
-                    id="mce-EMAIL"
-                    required
-                  />
-                  <button
-                    className={styles.button}
-                    type="submit"
-                    value="Subscribe"
-                    name="subscribe"
-                    id="mc-embedded-subscribe">
-                    Sign-up
-                  </button>
-                </form>
-              </div>
-              <div className={styles.line}></div>
+              <div className={styles.line} />
             </div>
             <div className={styles.card}>
-              <div className={styles.gradient}></div>
+              <div className={styles.gradient} />
               <div className={styles.advanced}>
                 <p>Advanced</p>
               </div>
-              <div className={styles.textContainer}>
-                <h2>Reserve your decentralized identifier</h2>
-                <p>
-                  (i) This public username is an ENTIRELY OPTIONAL feature that will allow people to
-                  find you via onchain-handle.
-                  <br />
-                  <span>4503</span> bertians have already booked thier handle
-                </p>
+              <div className={styles.cardContent}>
+                <div className={styles.textContainer}>
+                  <h2 className={styles.cardTitle}>
+                    Reserve your decentralized identifier
+                  </h2>
+                  <p style={fontStyle()}>
+                    (i) This public username is an ENTIRELY OPTIONAL feature
+                    that will allow people to find you via onchain-handle.
+                    <br />
+                    <span style={{ fontSize: 12 }}>
+                      <span style={{ color: "#F3A15E" }}>
+                        {collectionStats?.owners || 0}
+                      </span>{" "}
+                      bertians have already booked their handle
+                    </span>
+                  </p>
+                </div>
+                <div className={styles.search}>
+                  <form action="/registration" method="get">
+                    <input
+                      className={styles.cardInput}
+                      type="text"
+                      placeholder="Verify availablity..."
+                      name="name"
+                    />
+                    <PrimaryButton>Search</PrimaryButton>
+                  </form>
+                </div>
               </div>
-              <div className={styles.search}>
-                <form action="/registration" method="get">
-                  <input type="text" placeholder="Verify availablity..." />
-                  <button className={styles.button}>Connect Wallet</button>
-                </form>
-              </div>
-              <div className={styles.line}></div>
+              <div className={cn(styles.line, styles.lineRight)} />
             </div>
           </div>
         </section>

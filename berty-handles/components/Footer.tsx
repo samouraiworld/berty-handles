@@ -1,6 +1,8 @@
-import styles from '../../styles/Home.module.css';
+import styles from "../styles/Home.module.css";
 
-export default function Footer() {
+// TODO: extract styles from Home module
+
+export function Footer() {
   return (
     <section className={styles.footer}>
       <div className={styles.colContainer}>
@@ -43,16 +45,36 @@ export default function Footer() {
       <div className={styles.copyright}>
         <div className={styles.copyrightTxt}>
           <p>
-            Berty™️ is a registered trademark © 2018-2022 Berty Technologies - All right reserved -
-            Terms & Conditions - Privacy Policy
+            Berty™️ is a registered trademark © 2018-2022 Berty Technologies -
+            All right reserved - Terms & Conditions - Privacy Policy
           </p>
         </div>
         <div className={styles.follow}>
-          <img className={styles.logo} src="../img/discord_logo.svg" alt="Discord logo" />
-          <img className={styles.logo} src="../img/twitter_logo.svg" alt="Tweeter logo" />
-          <img className={styles.logo} src="../img/github_logo.svg" alt="Github logo" />
-          <img className={styles.logo} src="../img/unknown_logo.svg" alt="Unknown logo" />
-          <img className={styles.logo} src="../img/linkedin_logo.svg" alt="Linkedin logo" />
+          <img
+            className={styles.logo}
+            src="../img/discord_logo.svg"
+            alt="Discord logo"
+          />
+          <img
+            className={styles.logo}
+            src="../img/twitter_logo.svg"
+            alt="Tweeter logo"
+          />
+          <img
+            className={styles.logo}
+            src="../img/github_logo.svg"
+            alt="Github logo"
+          />
+          <img
+            className={styles.logo}
+            src="../img/unknown_logo.svg"
+            alt="Unknown logo"
+          />
+          <img
+            className={styles.logo}
+            src="../img/linkedin_logo.svg"
+            alt="Linkedin logo"
+          />
         </div>
       </div>
     </section>

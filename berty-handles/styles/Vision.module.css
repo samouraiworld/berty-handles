@@ -28,7 +28,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: sticky;
     background: rgba(2, 9, 64, 1);
     height: 90px;
     gap: 40%;
@@ -90,14 +89,9 @@
     text-align: end;
 }
 
-.rowrev {
-    flex-direction: row-reverse !important;
-}
-
 /* Navbar */
 
 .navbar {
-    position: relative;
     gap: 32px;
     display: flex;
     align-items: center;
@@ -145,6 +139,9 @@
 /* content */
 .contentContainer {
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,7 +158,6 @@
 }
 
 .contentContainer h2 {
-    font-weight: 700;
     font-size: 25px;
     line-height: 32px;
     color: #FFBF47;
@@ -186,7 +182,7 @@
 }
 
 .simpleContainer {
-    width: 953px;
+    max-width: 953px;
     display: flex;
     flex-direction: column;
 }
@@ -204,19 +200,19 @@
 }
 
 .simpleContainer:nth-child(2) .textContainer {
-    width: 812px;
+    max-width: 812px;
 }
 
 .simpleContainer:nth-child(4) .textContainer {
-    width: 796px;
+    max-width: 796px;
 }
 
 .simpleContainer:nth-child(6) .textContainer {
-    width: 766px;
+    max-width: 766px;
 }
 
 .simpleContainer:nth-child(7) .textContainer {
-    width: 799px;
+    max-width: 799px;
 }
 
 .imgContainer {
@@ -242,15 +238,15 @@
 }
 
 .miniContainer:nth-child(1) {
-    width: 331px;
+    max-width: 331px;
 }
 
 .miniContainer:nth-child(2) {
-    width: 228px;
+    max-width: 228px;
 }
 
 .miniContainer:nth-child(3) {
-    width: 290px;
+    max-width: 290px;
     padding-bottom: 43px;
 }
 
@@ -290,7 +286,7 @@
 }
 
 .footer .logo {
-    width: 152px;
+    max-width: 152px;
     height: 62px;
     margin-bottom: 16px;
 }
@@ -372,6 +368,11 @@
     height: 20px;
 }
 
+
+.rowrev {
+    flex-direction: row-reverse;
+}
+
 /* Media Queries */
 
 @media (max-width:1600px) {
@@ -422,7 +423,6 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        position: fixed;
         top: 0;
         right: -500px;
         height: 100vh;
@@ -467,4 +467,14 @@
         display: none;
     }
 
+
+    .tripleContainer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:599px) {
+    .subcontentContainer {
+        flex-direction: column-reverse;
+    }
 }

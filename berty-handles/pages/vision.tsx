@@ -1,7 +1,10 @@
-import Head from 'next/head';
-import styles from '../styles/Vision.module.css';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
+import Head from "next/head";
+
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import styles from "../styles/Vision.module.css";
+
+// FIXME: reimplement with reusable styles to have real responsiveness
 
 export default function Vision() {
   return (
@@ -36,14 +39,17 @@ export default function Vision() {
               <div className={styles.subcontentContainer}>
                 <div className={styles.textContainer}>
                   <p>
-                    We live in an era of accelerated change. The pace of innovation is unprecedented
-                    and the emergence of new technologies like Web 3 tools unlocks a ton of
-                    opportunities. Today, thanks to these amazing technologies, anyone can create a
-                    sustainable business without making any compromises. Let’s write it down: The
-                    era of concessions is now over. Let’s do the right thing, for the right
-                    purposes. Let's redefine together what is achievable and what we really hope for
-                    in the future. Everyone has the individual power to decide - and it starts with
-                    a simple yet fundamental thing such as choosing a communication solution.
+                    We live in an era of accelerated change. The pace of
+                    innovation is unprecedented and the emergence of new
+                    technologies like Web 3 tools unlocks a ton of
+                    opportunities. Today, thanks to these amazing technologies,
+                    anyone can create a sustainable business without making any
+                    compromises. Let’s write it down: The era of concessions is
+                    now over. Let’s do the right thing, for the right purposes.
+                    Let's redefine together what is achievable and what we
+                    really hope for in the future. Everyone has the individual
+                    power to decide - and it starts with a simple yet
+                    fundamental thing such as choosing a communication solution.
                   </p>
                 </div>
                 <div className={`${styles.imgContainer} ${styles.mb20}`}>
@@ -59,44 +65,57 @@ export default function Vision() {
               <div className={`${styles.subcontentContainer} ${styles.rowrev}`}>
                 <div className={styles.textContainer}>
                   <p>
-                    Over the past decade, instant messaging applications have become increasingly
-                    popular. WhatsApp, Facebook Messenger, Telegram and WeChat are certainly among
-                    the best-known. Have you ever wondered, will these applications still exist in
-                    10, 20 or even 30 years? Do you foresee these applications still existing in
-                    2050? <br />
-                    To us, none of today’s messenger solutions are able to bring certain degree of
-                    confidence to use it, without fearing censorship or surveillance and were able
-                    to ensure that our own data would not be used against us, we decided to build
-                    our own. Berty is a new kind of messenger. It is decentralized, unstoppable,
+                    Over the past decade, instant messaging applications have
+                    become increasingly popular. WhatsApp, Facebook Messenger,
+                    Telegram and WeChat are certainly among the best-known. Have
+                    you ever wondered, will these applications still exist in
+                    10, 20 or even 30 years? Do you foresee these applications
+                    still existing in 2050? <br />
+                    To us, none of today’s messenger solutions are able to bring
+                    certain degree of confidence to use it, without fearing
+                    censorship or surveillance and were able to ensure that our
+                    own data would not be used against us, we decided to build
+                    our own. Berty is a new kind of messenger. It is
+                    decentralized, unstoppable,
                     <br />
-                    un-censurable, secure, made for the future, and in a pure open source spirit.
+                    un-censurable, secure, made for the future, and in a pure
+                    open source spirit.
                   </p>
                 </div>
                 <div className={`${styles.imgContainer} ${styles.mr53}`}>
-                  <img src="../img/vision2.svg" alt="artificial satellite image" />
+                  <img
+                    src="../img/vision2.svg"
+                    alt="artificial satellite image"
+                  />
                 </div>
               </div>
             </div>
 
             <div className={`${styles.simpleContainer} ${styles.mb27}`}>
               <div className={`${styles.subtitleContainer} ${styles.mb20}`}>
-                <h2 className={styles.txtalignend}>Berty embraces the Web3 revolution</h2>
+                <h2 className={styles.txtalignend}>
+                  Berty embraces the Web3 revolution
+                </h2>
               </div>
               <div className={styles.subcontentContainer}>
                 <div className={styles.textContainer}>
                   <p>
-                    Centralization has allowed billions of people to access the World Wide Web and
-                    create the stable and robust infrastructure on which it is based. At the same
-                    time, a handful of centralized entities have taken control of large parts of the
-                    World Wide Web, unilaterally deciding what is and is not allowed.Web3 is the
-                    answer to this dilemma. Unlike a Web dominated by large technology companies,
-                    Web3 is decentralized and is built, operated and owned by its users. Web3 gives
-                    power to individuals rather than corporations.
+                    Centralization has allowed billions of people to access the
+                    World Wide Web and create the stable and robust
+                    infrastructure on which it is based. At the same time, a
+                    handful of centralized entities have taken control of large
+                    parts of the World Wide Web, unilaterally deciding what is
+                    and is not allowed.Web3 is the answer to this dilemma.
+                    Unlike a Web dominated by large technology companies, Web3
+                    is decentralized and is built, operated and owned by its
+                    users. Web3 gives power to individuals rather than
+                    corporations.
                     <br />
                     <br />
-                    Web3 is about digital sovereignty for individuals, businesses and governments.
-                    It means no longer letting anyone decide for everyone what the Internet should
-                    look like.
+                    Web3 is about digital sovereignty for individuals,
+                    businesses and governments. It means no longer letting
+                    anyone decide for everyone what the Internet should look
+                    like.
                   </p>
                 </div>
                 <div className={styles.imgContainer}>
@@ -115,9 +134,9 @@ export default function Vision() {
                 </div>
                 <div className={styles.txtCont}>
                   <p>
-                    Instead of large parts of the Internet being owned and controlled by a few
-                    centralized entities, ownership in Berty is distributed among its creators and
-                    users.
+                    Instead of large parts of the Internet being owned and
+                    controlled by a few centralized entities, ownership in Berty
+                    is distributed among its creators and users.
                   </p>
                 </div>
               </div>
@@ -131,8 +150,9 @@ export default function Vision() {
                 </div>
                 <div className={styles.txtCont}>
                   <p>
-                    Everyone has equal access to contribute to Berty, and no one can be excluded.
-                    Berty was built for the community and by the community.
+                    Everyone has equal access to contribute to Berty, and no one
+                    can be excluded. Berty was built for the community and by
+                    the community.
                   </p>
                 </div>
               </div>
@@ -146,8 +166,8 @@ export default function Vision() {
                 </div>
                 <div className={styles.txtCont}>
                   <p>
-                    Berty does not rely on trusted third parties and stands on a very basic concept:
-                    no one trusts anyone.
+                    Berty does not rely on trusted third parties and stands on a
+                    very basic concept: no one trusts anyone.
                   </p>
                 </div>
               </div>
@@ -160,13 +180,16 @@ export default function Vision() {
               <div className={`${styles.subcontentContainer} ${styles.rowrev}`}>
                 <div className={styles.textContainer}>
                   <p>
-                    The right to privacy is a fundamental right. It protects people from being
-                    targeted or tracked by others and guarantees personal space. Privacy should no
-                    longer be fashionable, nor a cool feature to have. It should be a standard.
+                    The right to privacy is a fundamental right. It protects
+                    people from being targeted or tracked by others and
+                    guarantees personal space. Privacy should no longer be
+                    fashionable, nor a cool feature to have. It should be a
+                    standard.
                     <br />
-                    <br /> That's one of the reasons why Berty is designed to be privacy responsible
-                    and why even as a founding team we have no access to your data. Furthermore, we
-                    have made the choice to be an NGO and not a for-profit entity. Privacy is not a
+                    <br /> That's one of the reasons why Berty is designed to be
+                    privacy responsible and why even as a founding team we have
+                    no access to your data. Furthermore, we have made the choice
+                    to be an NGO and not a for-profit entity. Privacy is not a
                     business model.
                   </p>
                 </div>
@@ -185,23 +208,29 @@ export default function Vision() {
               <div className={styles.subcontentContainer}>
                 <div className={styles.textContainer}>
                   <p>
-                    Unfortunately, we think tomorrow will be made of obstacles. So to go further in
-                    the thinking process, Berty is designed to be a messenger that enables
-                    communication that can withstand the obstacles that may come our way. They can
-                    be natural, like an earthquake, a tornado (think Haiti) or man-made: the madness
-                    of censorship and surveillance of certain individuals out of the sheer urge to
-                    control populations (think China). Or maybe even tomorrow we will be in areas
-                    never explored before (think of Mars). We don't know what the future is. We just
-                    want to be prepared and make Berty the communication tool that can withstand
-                    whatever obstacles may come our way. In short, Berty, your next unstoppable
-                    messenger, no matter what.
+                    Unfortunately, we think tomorrow will be made of obstacles.
+                    So to go further in the thinking process, Berty is designed
+                    to be a messenger that enables communication that can
+                    withstand the obstacles that may come our way. They can be
+                    natural, like an earthquake, a tornado (think Haiti) or
+                    man-made: the madness of censorship and surveillance of
+                    certain individuals out of the sheer urge to control
+                    populations (think China). Or maybe even tomorrow we will be
+                    in areas never explored before (think of Mars). We don't
+                    know what the future is. We just want to be prepared and
+                    make Berty the communication tool that can withstand
+                    whatever obstacles may come our way. In short, Berty, your
+                    next unstoppable messenger, no matter what.
                     <br />
                     <br />
-                    We are committed to creating the best future-proof communication app ever made.
-                    Join us in this amazing and necessary journey.
+                    We are committed to creating the best future-proof
+                    communication app ever made. Join us in this amazing and
+                    necessary journey.
                   </p>
                 </div>
-                <div className={`${styles.imgContainer} ${styles.mr29} ${styles.mb60}`}>
+                <div
+                  className={`${styles.imgContainer} ${styles.mr29} ${styles.mb60}`}
+                >
                   <img src="../img/vision6.svg" alt="rised fist image" />
                 </div>
               </div>

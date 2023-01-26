@@ -202,7 +202,6 @@
 
 .registration {
     width: 100%;
-    height: 670px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -223,13 +222,10 @@
     display: flex;
     flex-direction: column;
     width: 225px;
-    height: 220px;
-    padding: 75px 0px 0px 0px;
 }
 
 .stepsArray .array {
     width: 225px;
-    height: 190px;
 }
 
 .stepsArray .array li {
@@ -285,11 +281,14 @@
 
 .connectArray {
     width: 664px;
-    height: 410px;
-    padding-top: 75px;
+    margin-bottom: 75px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.connect {
+    padding-right: 2px;
 }
 
 .connectArray .connect {
@@ -337,12 +336,37 @@
     justify-content: center;
     align-items: center;
     width: 118px;
-    height: 46px;
+    height: 42px;
     background: rgba(106, 171, 100, 1);
     border-radius: 8px;
     font-family: 'IBM Plex Mono';
     font-style: normal;
-    font-weight: 700;
+    font-size: 13px;
+}
+
+.checkingBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 118px;
+    height: 42px;
+    background: rgba(106, 100, 171, 1);
+    border-radius: 8px;
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-size: 13px;
+}
+
+.takenBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 118px;
+    height: 42px;
+    background: rgba(171, 106, 100, 1);
+    border-radius: 8px;
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
     font-size: 13px;
 }
 
@@ -356,7 +380,6 @@
     border-radius: 5px;
     font-family: 'IBM Plex Mono';
     font-style: normal;
-    font-weight: 700;
     font-size: 13px;
 }
 
@@ -385,7 +408,6 @@
 
 .connectArray .info p {
     font-size: 13px !important;
-    font-weight: 700 !important;
     color: rgba(133, 137, 166, 1);
 }
 
@@ -413,7 +435,6 @@
     background: #ffffff00;
     border: 1px solid rgba(82, 91, 236, 1);
     border-radius: 8px;
-    font-weight: 700;
     font-size: 13px;
 }
 
@@ -423,7 +444,6 @@
 
 .registration2 {
     width: 100%;
-    height: 600px;
     display: flex;
     flex-direction: row;
     gap: 80px;
@@ -500,7 +520,6 @@
         position: fixed;
         top: 0;
         right: -500px;
-        height: 100vh;
         width: 120px;
         background-color: rgba(82, 91, 236, 1);
         border-radius: 10px 0px 0px 10px;

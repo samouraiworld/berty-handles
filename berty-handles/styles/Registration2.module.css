@@ -32,6 +32,10 @@
   z-index: 99;
 }
 
+.formInput::placeholder {
+  color: #8589A6;
+}
+
 .hov:hover {
   background: rgba(82, 91, 236, 1) !important;
 }
@@ -304,7 +308,6 @@
 
 .back p {
   padding: 6px;
-  font-weight: 700;
   font-size: 13px;
   line-height: 17px;
   color: #8589a6;
@@ -317,6 +320,7 @@
 .profile {
   width: 224px;
   height: 224px;
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -334,7 +338,6 @@
 .profile p {
   font-family: 'IBM Plex Mono';
   font-style: normal;
-  font-weight: 700;
   font-size: 13px;
 }
 
@@ -363,7 +366,6 @@
   border: 1px solid #525bec;
   font-family: 'IBM Plex Mono';
   font-style: normal;
-  font-weight: 700;
   font-size: 13px;
   line-height: 17px;
   width: 100%;
@@ -373,7 +375,6 @@
 .registrationForm {
   display: flex;
   flex-direction: column;
-  padding: 24px 0 0 0;
   width: 664px;
   gap: 16px;
 }
@@ -392,7 +393,6 @@
 }
 
 .mint p {
-  font-weight: 700;
   font-size: 13px;
   color: #8589a6;
 }
@@ -404,7 +404,6 @@
 }
 
 .registrationForm p {
-  font-weight: 700;
   font-size: 13px;
   color: #8589a6;
   margin-bottom: 6px;
@@ -415,7 +414,6 @@
   width: 664px;
   height: 48px;
   background: #131a51;
-  font-weight: 700;
   font-size: 13px;
   border-radius: 8px;
   border: 0;
@@ -426,21 +424,6 @@
   display: flex;
   justify-content: center;
   margin-bottom: 120px;
-}
-
-.registrationForm button {
-  background-color: rgba(82, 91, 236, 1);
-  color: #fff;
-  white-space: nowrap;
-  border-radius: 8px;
-  width: 217px;
-  height: 42px;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 17px;
-  margin-top: 2px;
-  border: none;
-  cursor: pointer;
 }
 
 .mobilePopup {
@@ -489,7 +472,6 @@
 }
 
 .card .top h2 {
-  font-weight: 700;
   font-size: 20px;
   line-height: 26px;
 }
@@ -536,7 +518,6 @@
 }
 
 .card .mid .infoContainer p {
-  font-weight: 700;
   font-size: 13px;
   line-height: 17px;
   margin: 0px 8px;
@@ -583,7 +564,6 @@
 }
 
 .card .bot p {
-  font-weight: 700;
   font-size: 13px;
   line-height: 17px;
   color: #8589a6;

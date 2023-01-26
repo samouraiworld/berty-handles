@@ -1,10 +1,112 @@
-import Head from 'next/head';
-import styles from '../styles/Registration.module.css';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
-import KeplrButton from '../components/wallets/Keplr/keplr';
+import cn from "classnames";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
+
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import { KeplrButton } from "../components/KeplrButton";
+import { PrimaryButton } from "../components/PrimaryButton";
+import { ProfileImage } from "../components/ProfileImage";
+import { RegistrationForm } from "../components/RegistrationForm";
+import { SecondaryButton } from "../components/SecondaryButton";
+import { SuccessModal } from "../components/SuccessModal";
+import { useKeplr } from "../contexts/keplrContext";
+import { useCollectionStats } from "../hooks/useCollectionStats";
+import { useNSInfo } from "../hooks/useNSInfo";
+import { nsContractAddress, TLD } from "../lib/config";
+import { Metadata as NSMetadata } from "../lib/name-service/TeritoriNameService.types";
+import { fontStyle } from "../lib/style";
+import styles from "../styles/Registration.module.css";
+import styles2 from "../styles/Registration2.module.css";
+
+enum RegistrationStep {
+  Search = 0,
+  ConnectWallet = 1,
+  ClaimAllocation = 2,
+  Registration = 3,
+}
 
 export default function Registration() {
+  const router = useRouter();
+  const { name: pageParamName } = router.query;
+
+  const [formState, setFormState] = useState<NSMetadata>({});
+  const [showModal, setShowModal] = useState(false);
+  const [name, setName] = useState("");
+  const [step, setStep] = useState(RegistrationStep.Search);
+  const { data: nsInfo, isSuccess } = useNSInfo(`${name}.${TLD}`);
+  const { connected: walletConnected } = useKeplr();
+  const { data: collectionStats } = useCollectionStats(
+    `tori-${nsContractAddress}`
+  );
+
+  // sync browser url with name
+  useEffect(() => {
+    const url = new URL(window.location.toString());
+    if (name) {
+      url.searchParams.set("name", name);
+    } else {
+      url.searchParams.delete("name");
+    }
+    window.history.replaceState(window.history.state, "", url);
+  }, [name]);
+
+  // sync name with browser url
+  useEffect(() => {
+    if (Array.isArray(pageParamName)) {
+      return;
+    }
+    setName(pageParamName || "");
+  }, [pageParamName]);
+
+  const searchState = name
+    ? isSuccess
+      ? nsInfo === null
+        ? "Available"
+        : "Taken"
+      : "Checking"
+    : "None";
+
+  let canContinue = false;
+  switch (step) {
+    case RegistrationStep.Search: {
+      canContinue = searchState === "Available";
+      break;
+    }
+    case RegistrationStep.ConnectWallet: {
+      canContinue = searchState === "Available" && walletConnected;
+      break;
+    }
+    case RegistrationStep.ClaimAllocation: {
+      canContinue = searchState === "Available";
+      break;
+    }
+  }
+
+  let availabilityButtonStyle;
+  switch (searchState) {
+    case "Available": {
+      availabilityButtonStyle = styles.availableBtn;
+      break;
+    }
+    case "Taken": {
+      availabilityButtonStyle = styles.takenBtn;
+      break;
+    }
+    case "Checking": {
+      availabilityButtonStyle = styles.checkingBtn;
+      break;
+    }
+  }
+
+  const handleContinue = useCallback(() => {
+    setStep((step) => {
+      if (step >= RegistrationStep.Registration) return step;
+      return step + 1;
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -15,104 +117,280 @@ export default function Registration() {
       </Head>
       <div className={styles.Body}>
         <Header />
-
-        <section className={styles.registration}>
-          <div className={styles.wrap}>
-            <div className={styles.stepsArray}>
-              <div className={styles.title}>
-                <h2>REGISTRATION STEPS</h2>
-              </div>
-              <div className={styles.array}>
-                <ul className={styles.steps}>
-                  <li className={styles.valid}>
-                    <a href="/" className={styles.retLi}>
+        <div
+          style={{
+            minHeight: "calc(100vh - 90px)", // FIXME: find correct header size
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "column",
+          }}
+        >
+          <section className={styles.registration}>
+            <div className={styles.wrap}>
+              {step === RegistrationStep.Registration ? (
+                <div
+                  className={styles2.back}
+                  onClick={() => setStep(RegistrationStep.ClaimAllocation)}
+                  style={{
+                    height: 32,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <img src="../img/arrow.png" alt="Back arrow icon" />
+                  <p style={fontStyle()}>Back</p>
+                </div>
+              ) : (
+                <div style={{ height: 32, marginBottom: 22 }} />
+              )}
+              <div className={styles.stepsArray} style={fontStyle()}>
+                <div className={styles.title}>
+                  <h2>REGISTRATION STEPS</h2>
+                </div>
+                <div className={styles.array}>
+                  <ul className={styles.steps} style={fontStyle()}>
+                    <li
+                      className={cn(
+                        styles.retLi,
+                        step > RegistrationStep.Search && styles.valid,
+                        step === RegistrationStep.Search && styles.current
+                      )}
+                    >
                       <h2>1/ Search username</h2>
-                      <img src="../img/valid_icon.svg" alt="Green completion icon" />
-                    </a>
-                  </li>
-                  <li className={`${styles.current} ${styles.li1}`}>
-                    <h2>2/ Connect Wallet</h2>
-                    <img src="../img/valid_icon.svg" alt="Green completion icon" />
-                  </li>
-                  <li className={styles.li2}>
-                    <h2>3/ Claim Allocation</h2>
-                  </li>
-                  <li>
-                    <h2>4/ Registration</h2>
-                  </li>
-                </ul>
+                      {step > RegistrationStep.Search && styles.valid && (
+                        <img
+                          src="../img/valid_icon.svg"
+                          alt="Green completion icon"
+                        />
+                      )}
+                    </li>
+                    <li
+                      className={cn(
+                        styles.li1,
+                        step > RegistrationStep.ConnectWallet && styles.valid,
+                        step === RegistrationStep.ConnectWallet &&
+                          styles.current
+                      )}
+                    >
+                      <h2>2/ Connect Wallet</h2>
+                      {step > RegistrationStep.ConnectWallet &&
+                        styles.valid && (
+                          <img
+                            src="../img/valid_icon.svg"
+                            alt="Green completion icon"
+                          />
+                        )}
+                    </li>
+                    <li
+                      className={cn(
+                        styles.li2,
+                        step > RegistrationStep.ClaimAllocation && styles.valid,
+                        step === RegistrationStep.ClaimAllocation &&
+                          styles.current
+                      )}
+                    >
+                      <h2>3/ Claim Allocation</h2>
+                      {step > RegistrationStep.ClaimAllocation &&
+                        styles.valid && (
+                          <img
+                            src="../img/valid_icon.svg"
+                            alt="Green completion icon"
+                          />
+                        )}
+                    </li>
+                    <li
+                      className={cn(
+                        step === RegistrationStep.Registration && styles.current
+                      )}
+                    >
+                      <h2>4/ Registration</h2>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className={styles.connectArray}>
-            <div className={styles.connect}>
-              <h2>brucelee.berty</h2>
-              <div className={styles.availableBtn}>Available</div>
+              {step === RegistrationStep.Registration && (
+                <>
+                  <div className={styles2.profile}>
+                    <div className={styles2.status}>
+                      <p style={fontStyle()}>Available</p>
+                    </div>
+                    <ProfileImage url={formState.image} size={104} />
+                    <p style={fontStyle()}>
+                      {name}
+                      <span style={{ color: "#C1C5E2" }}>.{TLD}</span>
+                    </p>
+                  </div>
+                  <SecondaryButton style={{ width: "100%" }}>
+                    Learn More
+                  </SecondaryButton>
+                </>
+              )}
             </div>
-            <div className={styles.info}>
-              <img src="../img/info_icon.svg" alt="information icon" />
-              <div className={styles.textContainer}>
-                <h2>What is a decentralized handle?</h2>
-                <p>
-                  Your account will be registred on a public distributed ledger, allowing to book it
-                  without any centralised authority. To register your account, you’ll need a wallet
-                  (Metamask or Keplr) and sign a transaction.
-                </p>
-                <p>
-                  <span className={styles.txtOrange}>4503 / 10 000</span> bertians have already
-                  booked their handle
-                </p>
-              </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.reg1a}`}>
-              <img src="../img/metamask_logo.svg" alt="Metamask icon" />
-              <div className={styles.lineContainer}>
-                <h2>Metamask</h2>
-                <button className={`${styles.connectBtn} ${styles.hov} ${styles.button}`}>
-                  Connect
-                </button>
-              </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.reg1b}`}>
-              <img src="../img/kepler_logo.svg" alt="keplr icon" />
-              <div className={styles.lineContainer}>
-                <h2>Keplr Wallet</h2>
-                <KeplrButton className={`${styles.connectBtn} ${styles.hov} ${styles.button}`} />
-              </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2a}`}>
-              <img src="../img/berty_mini_logo.svg" alt="minparrot icon" />
-              <div className={styles.lineContainer}>
-                <h2>Claim Berty Supporter Allocation (FreeMint)</h2>
-              </div>
-            </div>
-            <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2b}`}>
-              <img src="../img/kepler_logo.svg" alt="coinbase icon" />
-              <div className={styles.lineContainer}>
-                <h2>Support the NGO by paying your handle</h2>
-              </div>
-            </div>
-            <div className={`${styles.continue} ${styles.reg1c}`}>
-              <button className={`${styles.continueBtn} ${styles.hov} ${styles.button}`}>
-                Continue
-              </button>
-            </div>
-            <div className={`${styles.connect2} ${styles.disabled} ${styles.reg2c}`}>
-              <button className={`${styles.continueBtn} ${styles.hov} ${styles.button}`}>
-                Learn More
-              </button>
-              <a
-                className={`${styles.btnLink} ${styles.revhov} ${styles.button}`}
-                href="/registration2">
-                <button className={styles.continueBtn}>Continue</button>
-              </a>
-            </div>
-          </div>
-        </section>
 
-        <Footer />
+            <div>
+              <div style={{ height: 32, marginBottom: 22 }} />
+              <div className={styles.connectArray}>
+                {step < RegistrationStep.Registration && (
+                  <>
+                    <div className={styles.connect}>
+                      <div style={fontStyle()}>
+                        <input
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            outline: "none",
+                            ...fontStyle(),
+                          }}
+                        />
+                        .{TLD}
+                      </div>
+                      <div>
+                        {searchState !== "None" && (
+                          <div
+                            className={availabilityButtonStyle}
+                            style={fontStyle()}
+                          >
+                            {searchState}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className={styles.info}>
+                      <img src="../img/info_icon.svg" alt="information icon" />
+                      <div className={styles.textContainer} style={fontStyle()}>
+                        <h2>What is a decentralized handle?</h2>
+                        <p>
+                          Your account will be registred on a public distributed
+                          ledger, allowing to book it without any centralised
+                          authority. To register your account, you’ll need a
+                          wallet (Metamask or Keplr) and sign a transaction.
+                        </p>
+                        <p>
+                          <span className={styles.txtOrange}>
+                            {collectionStats?.owners || 0}
+                          </span>{" "}
+                          bertians have already booked their handle
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {step === RegistrationStep.ConnectWallet && (
+                  <>
+                    <div className={`${styles.connect2} ${styles.reg1a}`}>
+                      <img src="../img/metamask_logo.svg" alt="Metamask icon" />
+                      <div className={styles.lineContainer}>
+                        <h2>Metamask</h2>
+                        <span
+                          style={{
+                            width: 108,
+                            marginRight: 8,
+                            textAlign: "center",
+                            ...fontStyle(),
+                          }}
+                        >
+                          Coming Soon
+                        </span>
+                      </div>
+                    </div>
+                    <div className={`${styles.connect2} ${styles.reg1b}`}>
+                      <img src="../img/kepler_logo.svg" alt="keplr icon" />
+                      <div className={styles.lineContainer} style={fontStyle()}>
+                        <h2>Keplr Wallet</h2>
+                        <KeplrButton
+                          className={`${styles.connectBtn} ${styles.hov} ${styles.button}`}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+                {step === RegistrationStep.ClaimAllocation && (
+                  <>
+                    <div
+                      className={`${styles.connect2} ${styles.disabled} ${styles.reg2a}`}
+                    >
+                      <img
+                        src="../img/berty_mini_logo.svg"
+                        alt="minparrot icon"
+                      />
+                      <div className={styles.lineContainer}>
+                        <h2 style={fontStyle()}>
+                          Claim Berty Supporter Allocation (FreeMint)
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      className={`${styles.connect2} ${styles.disabled} ${styles.reg2b}`}
+                    >
+                      <img src="../img/kepler_logo.svg" alt="coinbase icon" />
+                      <div className={styles.lineContainer}>
+                        <h2 style={fontStyle()}>
+                          Support the NGO by paying your handle
+                        </h2>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {step === RegistrationStep.Registration && (
+                  <RegistrationForm
+                    name={name}
+                    state={formState}
+                    onChangeState={setFormState}
+                    onSuccess={() => {
+                      setShowModal(true);
+                    }}
+                  />
+                )}
+                {step < RegistrationStep.ClaimAllocation && (
+                  <div style={{ textAlign: "center", marginTop: 8 }}>
+                    <PrimaryButton
+                      disabled={!canContinue}
+                      onClick={handleContinue}
+                    >
+                      Continue
+                    </PrimaryButton>
+                  </div>
+                )}
+                {step === RegistrationStep.ClaimAllocation && (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: 8,
+                    }}
+                  >
+                    <SecondaryButton>Learn More</SecondaryButton>
+                    <div style={{ width: 25 }} />
+                    <PrimaryButton
+                      disabled={!canContinue}
+                      onClick={handleContinue}
+                    >
+                      Continue
+                    </PrimaryButton>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+
+          <Footer />
+        </div>
       </div>
+      <SuccessModal
+        name={name}
+        show={showModal}
+        imageURL={formState.image}
+        onClose={() => {
+          setStep(RegistrationStep.ClaimAllocation);
+          setShowModal(false);
+          setName("");
+        }}
+      />
     </>
   );
 }
