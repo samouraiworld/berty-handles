@@ -30,13 +30,11 @@ export default function Home() {
               <img src="../img/illustration.svg" alt="Illustration of an egg" />
             </div>
             <div className={styles.right}>
-              <div className={styles.text1}>
-                <h1>
-                  Berty, the future-proof{" "}
-                  <span className={styles.txtOrange}>web3</span> messenger is
-                  coming soon....
-                </h1>
-              </div>
+              <h1>
+                Berty, the future-proof{" "}
+                <span className={styles.txtOrange}>web3</span> messenger is
+                coming soon....
+              </h1>
             </div>
           </div>
           <div className={styles.bottomContainer}>

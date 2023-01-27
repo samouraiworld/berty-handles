@@ -84,7 +84,6 @@
 
 .content {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding-bottom: 150px;
@@ -98,6 +97,7 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
+  margin-bottom: 20px;
 }
 
 .contentContainer img {
@@ -108,6 +108,7 @@
 
 .contentContainer h1 {
   width: 430px;
+  max-width: 488px;
   font-weight: 600;
   font-size: 40px;
   line-height: 52px;
@@ -450,6 +451,10 @@
   flex-direction: column;
 }
 
+.right {
+  max-width: 488px;
+}
+
 /* Media Queries */
 
 @media (max-width:1600px) {
@@ -471,12 +476,6 @@
 
   .content {
       display: flex;
-      gap: 80px;
-  }
-
-
-  .contentContainer {
-      height: 450px;
   }
 
   .contentContainer img {
@@ -522,7 +521,6 @@
   }
 
   .contentContainer {
-      height: 570px;
       padding: 0;
       flex-direction: column;
       justify-content: space-around;
@@ -535,23 +533,12 @@
   .contentContainer .right h1 {
       width: 100%;
       font-family: IBM Plex Mono;
-      font-size: 40px;
+      font-size: 26px;
       font-weight: 600;
-      line-height: 52px;
+      line-height: 33.8px;
       letter-spacing: 0em;
       text-align: left;
   }
-
-  .contentContainer .right h2 {
-      font-size: 16px;
-      line-height: 21px;
-  }
-
-  .contentContainer .right p {
-      font-size: 12px;
-      line-height: 17px;
-  }
-
 
   .contentContainer .right {
       display: flex;
