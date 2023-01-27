@@ -10,6 +10,7 @@ import styles from "../styles/RoadMap.module.css";
 export default function RoadMap() {
   const windowDimensions = useWindowDimensions();
 
+  // this defeats SSR purpose and could be optimized by using css only
   if (windowDimensions.width === 0) {
     return null;
   }
