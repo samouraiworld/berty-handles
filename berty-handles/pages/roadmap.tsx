@@ -10,6 +10,10 @@ import styles from "../styles/RoadMap.module.css";
 export default function RoadMap() {
   const windowDimensions = useWindowDimensions();
 
+  if (windowDimensions.width === 0) {
+    return null;
+  }
+
   return (
     <>
       <Head>

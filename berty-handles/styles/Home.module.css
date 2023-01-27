@@ -471,7 +471,6 @@
   }
 }
 
-
 @media (max-width:1025px) {
 
   .content {
@@ -513,6 +512,11 @@
 
 }
 
+@media (max-width:999px) {
+  .content {
+    padding-bottom: 40px;
+  }
+}
 
 @media (max-width:799px) {
   .header {

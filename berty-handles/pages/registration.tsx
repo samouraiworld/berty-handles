@@ -1,7 +1,7 @@
 import cn from "classnames";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
@@ -14,11 +14,16 @@ import { SuccessModal } from "../components/SuccessModal";
 import { useKeplr } from "../contexts/keplrContext";
 import { useCollectionStats } from "../hooks/useCollectionStats";
 import { useNSInfo } from "../hooks/useNSInfo";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 import { nsContractAddress, TLD } from "../lib/config";
 import { Metadata as NSMetadata } from "../lib/name-service/TeritoriNameService.types";
 import { fontStyle } from "../lib/style";
 import styles from "../styles/Registration.module.css";
 import styles2 from "../styles/Registration2.module.css";
+
+// you need to update values in css if you edit these
+const breakPoint = 1000;
+const mobileStepWidth = 177;
 
 enum RegistrationStep {
   Search = 0,
@@ -26,6 +31,8 @@ enum RegistrationStep {
   ClaimAllocation = 2,
   Registration = 3,
 }
+
+type SearchState = "Available" | "Taken" | "Checking" | "None";
 
 export default function Registration() {
   const router = useRouter();
@@ -40,6 +47,12 @@ export default function Registration() {
   const { data: collectionStats } = useCollectionStats(
     `tori-${nsContractAddress}`
   );
+  const windowDimensions = useWindowDimensions();
+
+  let stepOffset = 0;
+  if (windowDimensions.width < breakPoint) {
+    stepOffset = (-step - 0.5) * mobileStepWidth + windowDimensions.width / 2;
+  }
 
   // sync browser url with name
   useEffect(() => {
@@ -60,7 +73,7 @@ export default function Registration() {
     setName(pageParamName || "");
   }, [pageParamName]);
 
-  const searchState = name
+  const searchState: SearchState = name
     ? isSuccess
       ? nsInfo === null
         ? "Available"
@@ -84,22 +97,6 @@ export default function Registration() {
     }
   }
 
-  let availabilityButtonStyle;
-  switch (searchState) {
-    case "Available": {
-      availabilityButtonStyle = styles.availableBtn;
-      break;
-    }
-    case "Taken": {
-      availabilityButtonStyle = styles.takenBtn;
-      break;
-    }
-    case "Checking": {
-      availabilityButtonStyle = styles.checkingBtn;
-      break;
-    }
-  }
-
   const handleContinue = useCallback(() => {
     setStep((step) => {
       if (step >= RegistrationStep.Registration) return step;
@@ -115,7 +112,7 @@ export default function Registration() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.Body}>
+      <div className={styles.body}>
         <Header />
         <div
           style={{
@@ -127,29 +124,26 @@ export default function Registration() {
         >
           <section className={styles.registration}>
             <div className={styles.wrap}>
-              {step === RegistrationStep.Registration ? (
-                <div
-                  className={styles2.back}
-                  onClick={() => setStep(RegistrationStep.ClaimAllocation)}
-                  style={{
-                    height: 32,
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <img src="../img/arrow.png" alt="Back arrow icon" />
-                  <p style={fontStyle()}>Back</p>
-                </div>
+              {step === RegistrationStep.Registration &&
+              windowDimensions.width >= breakPoint ? (
+                <BackButton
+                  onPress={() => setStep(RegistrationStep.ClaimAllocation)}
+                />
               ) : (
-                <div style={{ height: 32, marginBottom: 22 }} />
+                <div className={styles.backSpacer} />
               )}
               <div className={styles.stepsArray} style={fontStyle()}>
                 <div className={styles.title}>
                   <h2>REGISTRATION STEPS</h2>
                 </div>
                 <div className={styles.array}>
-                  <ul className={styles.steps} style={fontStyle()}>
+                  <ul
+                    className={styles.steps}
+                    style={{
+                      transform: `translateX(${stepOffset}px)`,
+                      ...fontStyle(),
+                    }}
+                  >
                     <li
                       className={cn(
                         styles.retLi,
@@ -211,7 +205,7 @@ export default function Registration() {
               </div>
 
               {step === RegistrationStep.Registration && (
-                <>
+                <div className={styles.registrationPreview}>
                   <div className={styles2.profile}>
                     <div className={styles2.status}>
                       <p style={fontStyle()}>Available</p>
@@ -225,41 +219,33 @@ export default function Registration() {
                   <SecondaryButton style={{ width: "100%" }}>
                     Learn More
                   </SecondaryButton>
-                </>
+                </div>
               )}
             </div>
 
-            <div>
-              <div style={{ height: 32, marginBottom: 22 }} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: windowDimensions.width < breakPoint ? "100%" : undefined,
+              }}
+            >
+              <div className={styles.backSpacer} />
               <div className={styles.connectArray}>
+                {step === RegistrationStep.Registration &&
+                  windowDimensions.width < breakPoint && (
+                    <BackButton
+                      onPress={() => setStep(RegistrationStep.ClaimAllocation)}
+                    />
+                  )}
                 {step < RegistrationStep.Registration && (
                   <>
-                    <div className={styles.connect}>
-                      <div style={fontStyle()}>
-                        <input
-                          type="text"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          style={{
-                            background: "none",
-                            border: "none",
-                            outline: "none",
-                            ...fontStyle(),
-                          }}
-                        />
-                        .{TLD}
-                      </div>
-                      <div>
-                        {searchState !== "None" && (
-                          <div
-                            className={availabilityButtonStyle}
-                            style={fontStyle()}
-                          >
-                            {searchState}
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                    <SearchBar
+                      onChange={setName}
+                      value={name}
+                      searchState={searchState}
+                    />
                     <div className={styles.info}>
                       <img src="../img/info_icon.svg" alt="information icon" />
                       <div className={styles.textContainer} style={fontStyle()}>
@@ -282,7 +268,7 @@ export default function Registration() {
                 )}
                 {step === RegistrationStep.ConnectWallet && (
                   <>
-                    <div className={`${styles.connect2} ${styles.reg1a}`}>
+                    <div className={`${styles.walletBox} ${styles.reg1a}`}>
                       <img src="../img/metamask_logo.svg" alt="Metamask icon" />
                       <div className={styles.lineContainer}>
                         <h2>Metamask</h2>
@@ -298,7 +284,7 @@ export default function Registration() {
                         </span>
                       </div>
                     </div>
-                    <div className={`${styles.connect2} ${styles.reg1b}`}>
+                    <div className={`${styles.walletBox} ${styles.reg1b}`}>
                       <img src="../img/kepler_logo.svg" alt="keplr icon" />
                       <div className={styles.lineContainer} style={fontStyle()}>
                         <h2>Keplr Wallet</h2>
@@ -312,7 +298,7 @@ export default function Registration() {
                 {step === RegistrationStep.ClaimAllocation && (
                   <>
                     <div
-                      className={`${styles.connect2} ${styles.disabled} ${styles.reg2a}`}
+                      className={`${styles.walletBox} ${styles.disabled} ${styles.reg2a}`}
                     >
                       <img
                         src="../img/berty_mini_logo.svg"
@@ -325,7 +311,7 @@ export default function Registration() {
                       </div>
                     </div>
                     <div
-                      className={`${styles.connect2} ${styles.disabled} ${styles.reg2b}`}
+                      className={`${styles.walletBox} ${styles.disabled} ${styles.reg2b}`}
                     >
                       <img src="../img/kepler_logo.svg" alt="coinbase icon" />
                       <div className={styles.lineContainer}>
@@ -394,3 +380,75 @@ export default function Registration() {
     </>
   );
 }
+
+const SearchBar: FC<{
+  onChange: (name: string) => void;
+  value: string;
+  searchState: SearchState;
+}> = ({ onChange, value, searchState }) => {
+  let availabilityButtonStyle;
+  switch (searchState) {
+    case "Available": {
+      availabilityButtonStyle = styles.availableBtn;
+      break;
+    }
+    case "Taken": {
+      availabilityButtonStyle = styles.takenBtn;
+      break;
+    }
+    case "Checking": {
+      availabilityButtonStyle = styles.checkingBtn;
+      break;
+    }
+  }
+  return (
+    <div className={styles.searchBar}>
+      <div
+        style={{
+          flexGrow: 1,
+          display: "flex",
+          marginRight: 12,
+          ...fontStyle(),
+        }}
+      >
+        <input
+          type="text"
+          value={value}
+          size={1}
+          onChange={(e) => onChange(e.target.value)}
+          style={{
+            background: "none",
+            border: "none",
+            outline: "none",
+            flexGrow: 1,
+            ...fontStyle(),
+          }}
+        />
+        .{TLD}
+      </div>
+      <div>
+        {searchState !== "None" && (
+          <div className={availabilityButtonStyle} style={fontStyle()}>
+            {searchState}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const BackButton: FC<{ onPress: () => void }> = ({ onPress }) => (
+  <div
+    className={styles2.back}
+    onClick={onPress}
+    style={{
+      height: 32,
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+    }}
+  >
+    <img src="../img/arrow.png" alt="Back arrow icon" />
+    <p style={fontStyle()}>Back</p>
+  </div>
+);

@@ -96,30 +96,6 @@
   border-radius: 10px;
 }
 
-.footer .colContainer {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 160px;
-}
-
-.colContainer .col1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  margin: 20px 164px 0 236px;
-}
-
-.colContainer .col1 p {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 15px;
-  color: #cbcefa;
-}
-
 .footer .logo {
   width: 152px;
   height: 62px;
@@ -148,23 +124,6 @@
   line-height: 15px;
   text-decoration: none;
   color: #a9adf7;
-}
-
-.footer .colContainer .col2 {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-.footer .colContainer .strong a {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 19px;
-  color: #cbcefa;
 }
 
 .footer .copyright {
@@ -277,33 +236,12 @@
   display: none;
 }
 
-/* Registration 3 */
-
-.registration3 {
-  width: 100%;
-  height: 1140px;
-  display: flex;
-  flex-direction: row;
-
-  justify-content: flex-start;
-  gap: 10%;
-}
-
-.registration3 .stepsArray {
-  height: 600px;
-  gap: 20px;
-  padding: 24px 0px 0px 236px;
-}
-
-.registration3 h2 {
-  font-size: 13px;
-}
-
 .back {
   display: flex;
   flex-direction: row;
   gap: 12px;
   margin-bottom: 22px;
+  align-self: flex-start;
 }
 
 .back p {
@@ -375,7 +313,7 @@
 .registrationForm {
   display: flex;
   flex-direction: column;
-  width: 664px;
+  width: 100%;
   gap: 16px;
 }
 
@@ -385,7 +323,7 @@
   align-items: center;
   /* margin-top: 74px; */
   padding: 20px 0;
-  height: 60px;
+  min-height: 60px;
   border: 1px solid #20275e;
   border-radius: 8px;
   gap: 16px;
@@ -411,7 +349,7 @@
 
 .registrationForm input {
   text-decoration: none;
-  width: 664px;
+  width: 100%;
   height: 48px;
   background: #131a51;
   font-size: 13px;
@@ -420,18 +358,10 @@
   padding-left: 12px;
 }
 
-.registrationForm .continue {
+.continue {
   display: flex;
   justify-content: center;
   margin-bottom: 120px;
-}
-
-.mobilePopup {
-  display: none;
-}
-
-.mobilePopup img {
-  display: none;
 }
 
 .cardPopup {
@@ -599,50 +529,13 @@
   cursor: pointer;
 }
 
-/* Media Queries */
-
-@media (max-width: 1600px) {
-  .footer .colContainer {
-    gap: 50px;
-  }
-
-  .registration3 {
-    gap: 50px;
-  }
-}
-
-/* @media (max-width:1350px) {
-
-    .leftWrapper {
-        width: 300px !important;
-    }
-} */
-
-@media (max-width: 1025px) {
+@media (max-width: 999px) {
   .contentContainer img {
     width: 222px;
     height: 214px;
     padding-top: 0;
   }
-
-  .footer .colContainer {
-    gap: 25px;
-  }
-
-  .colContainer .col1 {
-    margin: 20px 82px 0 125px;
-  }
-
-  .footer .copyright {
-    gap: 110px;
-  }
-
-  .footer .copyright p {
-    margin: 0 0 48px 125px;
-  }
-}
-
-@media (max-width: 799px) {
+  
   .header {
     gap: 0;
     height: 70px;
@@ -755,64 +648,11 @@
   }
 
   .back {
-    margin: 0px 0px 0px 20px;
+    margin: 0;
   }
 
   .learn {
     display: none;
-  }
-
-  .registration3 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-  }
-
-  .registrationForm {
-    width: 90% !important;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .registrationForm input {
-    width: 100% !important;
-  }
-
-  .mobilePopup {
-    position: fixed;
-    height: 60px;
-    /* height: 186px; */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: end;
-    /* height: 100%; */
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 995;
-  }
-
-  .mobilePopup #clickable {
-    display: flex;
-    width: 100%;
-    height: 90%;
-    background: rgba(46, 46, 46, 0.501);
-  }
-
-  .mobilePopup .profile {
-    margin-bottom: 0;
-    width: 100%;
-    height: 220px;
-    gap: 8px;
-    border-radius: 8px 8px 0 0;
-  }
-
-  .mobilePopup .profile .name p {
-    margin-bottom: 15px;
   }
 
   .card {
@@ -834,5 +674,9 @@
 
   .bot .logoContainer {
     width: 80% !important;
+  }
+
+  .continue {
+    margin-bottom: 0;
   }
 }

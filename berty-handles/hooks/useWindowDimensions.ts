@@ -15,6 +15,7 @@ export default function useWindowDimensions() {
   };
 
   // we must set the initial state to 0,0 to match the server-side values, otherwise there might be hydration errors
+  // this creates an ui glitch though
   const [windowDimensions, setWindowDimensions] = useState({
     width: 0,
     height: 0,
