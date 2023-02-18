@@ -123,8 +123,7 @@ export default function Registration() {
             display: "flex",
             justifyContent: "space-between",
             flexDirection: "column",
-          }}
-        >
+          }}>
           <section className={styles.registration}>
             <div className={styles.wrap}>
               {step === RegistrationStep.Registration &&
@@ -145,15 +144,13 @@ export default function Registration() {
                     style={{
                       transform: `translateX(${stepOffset}px)`,
                       ...fontStyle(),
-                    }}
-                  >
+                    }}>
                     <li
                       className={cn(
                         styles.retLi,
                         step > RegistrationStep.Search && styles.valid,
                         step === RegistrationStep.Search && styles.current
-                      )}
-                    >
+                      )}>
                       <h2>1/ Search username</h2>
                       {step > RegistrationStep.Search && styles.valid && (
                         <img
@@ -168,8 +165,7 @@ export default function Registration() {
                         step > RegistrationStep.ConnectWallet && styles.valid,
                         step === RegistrationStep.ConnectWallet &&
                           styles.current
-                      )}
-                    >
+                      )}>
                       <h2>2/ Connect Wallet</h2>
                       {step > RegistrationStep.ConnectWallet &&
                         styles.valid && (
@@ -185,8 +181,7 @@ export default function Registration() {
                         step > RegistrationStep.ClaimAllocation && styles.valid,
                         step === RegistrationStep.ClaimAllocation &&
                           styles.current
-                      )}
-                    >
+                      )}>
                       <h2>3/ Claim Allocation</h2>
                       {step > RegistrationStep.ClaimAllocation &&
                         styles.valid && (
@@ -199,8 +194,7 @@ export default function Registration() {
                     <li
                       className={cn(
                         step === RegistrationStep.Registration && styles.current
-                      )}
-                    >
+                      )}>
                       <h2>4/ Registration</h2>
                     </li>
                   </ul>
@@ -232,8 +226,7 @@ export default function Registration() {
                 flexDirection: "column",
                 alignItems: "center",
                 width: windowDimensions.width < breakPoint ? "100%" : undefined,
-              }}
-            >
+              }}>
               <div className={styles.backSpacer} />
               <div className={styles.connectArray}>
                 {step === RegistrationStep.Registration &&
@@ -281,8 +274,7 @@ export default function Registration() {
                             marginRight: 8,
                             textAlign: "center",
                             ...fontStyle(),
-                          }}
-                        >
+                          }}>
                           Coming Soon
                         </span>
                       </div>
@@ -301,8 +293,7 @@ export default function Registration() {
                 {step === RegistrationStep.ClaimAllocation && (
                   <>
                     <div
-                      className={`${styles.walletBox} ${styles.disabled} ${styles.reg2a}`}
-                    >
+                      className={`${styles.walletBox} ${styles.disabled} ${styles.reg2a}`}>
                       <img
                         src="../img/berty_mini_logo.svg"
                         alt="minparrot icon"
@@ -314,8 +305,7 @@ export default function Registration() {
                       </div>
                     </div>
                     <div
-                      className={`${styles.walletBox} ${styles.disabled} ${styles.reg2b}`}
-                    >
+                      className={`${styles.walletBox} ${styles.disabled} ${styles.reg2b}`}>
                       <img src="../img/kepler_logo.svg" alt="coinbase icon" />
                       <div className={styles.lineContainer}>
                         <h2 style={fontStyle()}>
@@ -339,8 +329,7 @@ export default function Registration() {
                   <div style={{ textAlign: "center", marginTop: 8 }}>
                     <PrimaryButton
                       disabled={!canContinue}
-                      onClick={handleContinue}
-                    >
+                      onClick={handleContinue}>
                       Continue
                     </PrimaryButton>
                   </div>
@@ -351,14 +340,12 @@ export default function Registration() {
                       display: "flex",
                       justifyContent: "center",
                       marginTop: 8,
-                    }}
-                  >
+                    }}>
                     <SecondaryButton>Learn More</SecondaryButton>
                     <div style={{ width: 25 }} />
                     <PrimaryButton
                       disabled={!canContinue}
-                      onClick={handleContinue}
-                    >
+                      onClick={handleContinue}>
                       Continue
                     </PrimaryButton>
                   </div>
@@ -412,8 +399,7 @@ const SearchBar: FC<{
           display: "flex",
           marginRight: 12,
           ...fontStyle(),
-        }}
-      >
+        }}>
         <input
           type="text"
           value={value}
@@ -450,8 +436,7 @@ const BackButton: FC<{ onPress: () => void }> = ({ onPress }) => (
       cursor: "pointer",
       display: "flex",
       alignItems: "center",
-    }}
-  >
+    }}>
     <img src="../img/arrow.png" alt="Back arrow icon" />
     <p style={fontStyle()}>Back</p>
   </div>

@@ -1,48 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
 .buttonBase {
-    padding-left: 28px;
-    padding-right: 28px;
-    height: 42px;
-    text-align: center;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
+  padding-left: 28px;
+  padding-right: 28px;
+  height: 42px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
 }
 
 .primaryButton {
-    background: #525BEC;
-    border: 1px solid #525BEC;
+  background: #525bec;
+  border: 1px solid #525bec;
 }
 
 .primaryButton:hover {
-    background: #131A51;
-    border: 1px solid white;
+  background: #131a51;
+  border: 1px solid white;
 }
 
 .primaryButton.buttonDisabled {
-    color: rgba(133, 137, 166, 1);
+  color: rgba(133, 137, 166, 1);
 }
 
 .primaryButton.buttonDisabled:hover {
-    background: #525BEC;
-    border: 1px solid #525BEC;
-    cursor: default;
+  background: #525bec;
+  border: 1px solid #525bec;
+  cursor: default;
 }
 
 .secondaryButton {
-    background: #020940;
-    border: 1px solid #525BEC;
+  background: #020940;
+  border: 1px solid #525bec;
 }
 
 .secondaryButton:hover {
-    background: rgba(82, 91, 236, 1);
+  background: rgba(82, 91, 236, 1);
 }
 
 .secondaryButton.buttonDisabled {
-    color: rgba(133, 137, 166, 1);
+  color: rgba(133, 137, 166, 1);
 }
 
 .secondaryButton.buttonDisabled:hover {
-    background: #020940;
-    border: 1px solid #525BEC;
-    cursor: default;
+  background: #020940;
+  border: 1px solid #525bec;
+  cursor: default;
 }

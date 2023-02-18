@@ -5,7 +5,7 @@ import {
   GasPrice,
   SigningCosmWasmClient,
 } from "cosmwasm";
-import { ComponentProps, FC, useCallback } from "react";
+import { ComponentProps, FC, useCallback, useState } from "react";
 
 import { useNSPrice } from "../hooks/useNSPrice";
 import { nsContractAddress, rpcEndpoint, TLD } from "../lib/config";
@@ -26,54 +26,67 @@ export const RegistrationForm: FC<{
 }> = ({ name, onSuccess, state, onChangeState }) => {
   const { data: price } = useNSPrice(`${name}.${TLD}`);
 
+  const [error, setError] = useState(false);
+
   const register = useCallback(async () => {
-    const keplr = (window as KeplrWindow).keplr;
+    try {
+      const keplr = (window as KeplrWindow).keplr;
 
-    if (!keplr) {
-      console.warn("no keplr");
-      return;
+      setError(false);
+      if (!keplr) {
+        console.warn("no keplr");
+        return;
+      }
+
+      if (!price) {
+        console.warn("no price");
+        return;
+      }
+
+      const signer = await keplr.getOfflineSignerAuto(
+        teritoriTestChain.chainId
+      );
+
+      const client = await SigningCosmWasmClient.connectWithSigner(
+        rpcEndpoint,
+        signer,
+        { gasPrice: new GasPrice(Decimal.fromUserInput("0", 6), "utori") }
+      );
+
+      const accounts = await signer.getAccounts();
+
+      if (!onSuccess) {
+        console.log("hello");
+      }
+
+      if (accounts.length < 1) {
+        console.warn("no keplr accounts");
+        return;
+      }
+
+      const sender = accounts[0].address;
+
+      const contractClient = new TeritoriNameServiceClient(
+        client,
+        sender,
+        nsContractAddress
+      );
+
+      const result = await contractClient.mint(
+        {
+          owner: sender,
+          tokenId: `${name}.${TLD}`,
+          extension: state,
+        },
+        "auto",
+        undefined,
+        [{ denom: "utori", amount: price }]
+      );
+      onSuccess(result);
+    } catch (error) {
+      setError(true);
+      console.log(error);
     }
-
-    if (!price) {
-      console.warn("no price");
-      return;
-    }
-
-    const signer = await keplr.getOfflineSignerAuto(teritoriTestChain.chainId);
-
-    const client = await SigningCosmWasmClient.connectWithSigner(
-      rpcEndpoint,
-      signer,
-      { gasPrice: new GasPrice(Decimal.fromUserInput("0", 6), "utori") }
-    );
-
-    const accounts = await signer.getAccounts();
-
-    if (accounts.length < 1) {
-      console.warn("no keplr accounts");
-      return;
-    }
-
-    const sender = accounts[0].address;
-
-    const contractClient = new TeritoriNameServiceClient(
-      client,
-      sender,
-      nsContractAddress
-    );
-
-    const result = await contractClient.mint(
-      {
-        owner: sender,
-        tokenId: `${name}.${TLD}`,
-        extension: state,
-      },
-      "auto",
-      undefined,
-      [{ denom: "utori", amount: price }]
-    );
-
-    onSuccess(result);
   }, [name, price, state, onSuccess]);
 
   const inputProps = (name: keyof NSMetadata): ComponentProps<"input"> => {
@@ -167,6 +180,7 @@ export const RegistrationForm: FC<{
             {...inputProps("validator_operator_address")}
           />
         </li>
+        {error && <p className={styles.error}>Something went wrong</p>}
       </ul>
       <div className={styles.continue}>
         <PrimaryButton onClick={register}>Register your username</PrimaryButton>

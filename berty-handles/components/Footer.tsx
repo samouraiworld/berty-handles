@@ -16,29 +16,31 @@ export function Footer() {
         </div>
 
         <div className={`${styles.col2} ${styles.strong}`}>
-          <a href="#">Features</a>
-          <a href="#">Challenges</a>
-          <a href="#">FAQ</a>
-          <a href="#">Community</a>
-          <a href="#">Blog</a>
+          <a href="https://berty.tech/features">Features</a>
+          <a href="https://berty.tech/challenges">Challenges</a>
+          <a href="https://berty.tech/faq">FAQ</a>
+          <a href="https://berty.tech/community">Community</a>
+          <a href="https://berty.tech/blog">Blog</a>
         </div>
 
         <div className={styles.col2}>
           <h4>Developpers</h4>
-          <a href="#">Docs</a>
-          <a href="#">Our Projects</a>
-          <a href="#">Contribute</a>
-          <a href="#">Projects we love</a>
+          <a href="https://berty.tech/docs">Docs</a>
+          <a href="https://berty.tech/docs#projects">Our Projects</a>
+          <a href="https://berty.tech/contribute">Contribute</a>
+          <a href="https://berty.tech/contribute#projects-we-love">
+            Projects we love
+          </a>
         </div>
 
         <div className={styles.col2}>
-          <h4>About Us</h4>
-          <a href="#">Jobs</a>
-          <a href="#">Newsletter</a>
-          <a href="#">Contact</a>
-          <a href="#">Press</a>
-          <a href="#">Store</a>
-          <a href="#">Assets</a>
+          <h4> About Us</h4>
+          <a href="https://berty.crew.work/jobs">Jobs</a>
+          <a href="https://berty.tech/newsletter">Newsletter</a>
+          <a href="https://berty.tech/contact">Contact</a>
+          <a href="https://berty.tech/press">Press</a>
+          <a href="https://berty-tech.myshopify.com/">Store</a>
+          <a href="https://assets.berty.tech/">Assets</a>
         </div>
       </div>
 
@@ -46,35 +48,52 @@ export function Footer() {
         <div className={styles.copyrightTxt}>
           <p>
             Berty™️ is a registered trademark © 2018-2022 Berty Technologies -
-            All right reserved - Terms & Conditions - Privacy Policy
+            All right reserved -{" "}
+            <a target="BLANK" href="https://berty.tech/terms">
+              Terms & Conditions
+            </a>{" "}
+            -{" "}
+            <a target="BLANK" href="https://berty.tech/privacy-policy">
+              Privacy Policy
+            </a>
           </p>
         </div>
         <div className={styles.follow}>
-          <img
-            className={styles.logo}
-            src="../img/discord_logo.svg"
-            alt="Discord logo"
-          />
-          <img
-            className={styles.logo}
-            src="../img/twitter_logo.svg"
-            alt="Tweeter logo"
-          />
-          <img
-            className={styles.logo}
-            src="../img/github_logo.svg"
-            alt="Github logo"
-          />
-          <img
-            className={styles.logo}
-            src="../img/unknown_logo.svg"
-            alt="Unknown logo"
-          />
-          <img
-            className={styles.logo}
-            src="../img/linkedin_logo.svg"
-            alt="Linkedin logo"
-          />
+          <a target="BLANK" href="https://crpt.fyi/berty-discord">
+            <img
+              className={styles.logo}
+              src="../img/discord_logo.svg"
+              alt="Discord logo"
+            />
+          </a>
+          <a target="BLANK" href="https://twitter.com/berty">
+            <img
+              className={styles.logo}
+              src="../img/twitter_logo.svg"
+              alt="Tweeter logo"
+            />
+          </a>
+          <a target="BLANK" href="https://github.com/berty">
+            <img
+              className={styles.logo}
+              src="../img/github_logo.svg"
+              alt="Github logo"
+            />
+          </a>
+          <a target="BLANK" href="https://medium.com/berty-tech">
+            <img
+              className={styles.logo}
+              src="../img/unknown_logo.svg"
+              alt="Unknown logo"
+            />
+          </a>
+          <a target="BLANK" href="https://www.linkedin.com/company/berty">
+            <img
+              className={styles.logo}
+              src="../img/linkedin_logo.svg"
+              alt="Linkedin logo"
+            />
+          </a>
         </div>
       </div>
     </section>

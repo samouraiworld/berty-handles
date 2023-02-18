@@ -27,7 +27,10 @@ export const Header: FC = () => {
             </Link>
           </li>
           <li>
-            <Link className={styles.hov} href="/">
+            <Link
+              className={styles.hov}
+              target="_blank"
+              href="https://berty.tech/contribute">
               Contribute
             </Link>
           </li>
@@ -43,15 +46,13 @@ export const Header: FC = () => {
       <>
         <button
           className={styles.burgerIconContainer}
-          onClick={() => setShowBurgerMenu(true)}
-        >
+          onClick={() => setShowBurgerMenu(true)}>
           <img width={20} height={20} src="/img/burger.svg" />
         </button>
         {showBurgerMenu && (
           <div
             className={styles.burgerMenu}
-            onClick={() => setShowBurgerMenu(false)}
-          >
+            onClick={() => setShowBurgerMenu(false)}>
             <ul className={styles.navbar}>
               <li>
                 <Link className={styles.hov} href="/">
@@ -69,7 +70,10 @@ export const Header: FC = () => {
                 </Link>
               </li>
               <li>
-                <Link className={styles.hov} href="/">
+                <Link
+                  className={styles.hov}
+                  target="_blank"
+                  href="https://berty.tech/contribute">
                   Contribute
                 </Link>
               </li>
