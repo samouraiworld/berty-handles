@@ -36,11 +36,11 @@ export default function RoadMap() {
             ) : (
               <DesktopRoadmap />
             )}
-            <img
+            {/* <img
               src="../img/double_arrow.svg"
               className={styles.doubleArrow}
               alt="double arrow bottom oriented"
-            />
+            /> */}
           </div>
         </section>
 
@@ -63,8 +63,7 @@ const DesktopRoadmap: FC = () => {
           <div
             key={index}
             className={cn(styles.quarterContainer, isOdd && styles.qrev)}
-            style={isLast ? { marginBottom: 16 } : undefined}
-          >
+            style={isLast ? { marginBottom: 16 } : undefined}>
             <div className={styles.leftContainer}>
               <h2 className={styles.cardTitle} style={{ color: datum.color }}>
                 {datum.title}
