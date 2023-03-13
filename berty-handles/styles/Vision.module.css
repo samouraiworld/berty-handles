@@ -13,7 +13,7 @@
 .Body {
   width: 100%;
   min-height: 100vh;
-  background: rgba(2, 9, 64, 1);
+  background: #0c1135;
   margin: 0;
   padding: 0;
   font-family: "IBM Plex Mono", monospace;
@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: rgba(2, 9, 64, 1);
+  background: #0c1135;
   height: 90px;
   gap: 40%;
   top: 0;
